@@ -45,6 +45,11 @@
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route("all-users") }}">
+                                    All users
+                                </a>
+                            </li>
                             <li>
                                 <div class="active-cyan-4">
                                     <input class="form-control" type="text" placeholder="Search" aria-label="Search">

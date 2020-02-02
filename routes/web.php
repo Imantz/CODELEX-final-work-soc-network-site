@@ -14,7 +14,10 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::POST('/', 'WallFeedsController@create');
+
 Route::get('/my-profile', 'HomeController@show')->name('my-profile');
 Route::put('/my-profile', 'ProfileController@updateMyProfile')->name('my-profile');
-
+Route::get('/all-users', 'ProfileController@index')->name("all-users");
 Route::get('/profile/{user}', 'ProfileController@profile');
+

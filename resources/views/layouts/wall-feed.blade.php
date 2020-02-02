@@ -1,46 +1,33 @@
 @extends("home")
 @section("wall")
     <div>
-        <form>
+        <form action="/" method="POSt">
+            @csrf
             <div class="card">
                 <div class="card-header">Izveidot ierakstu</div>
 
                 <div class="form-group">
-                    <textarea style="border: none; resize: none;" class="form-control" id="exampleFormControlTextarea1" placeholder="Any text there.." rows="3"></textarea>
+                    <textarea style="border: none; resize: none;" class="form-control" id="exampleFormControlTextarea1" name="text" placeholder="Any text there.." rows="3"></textarea>
                 </div>
                 <button style="width: 80px;" class="btn btn-outline-success mb-2 ml-auto mr-2" type="submit" name="">Add</button>
             </div>
         </form>
-        <form>
-            <div class="card mt-2">
 
-                <div class="form-group p-2">
-                    <p>Text, any</p>
+        @foreach($wallFeeds as $feed)
+
+            <div>
+                <div class="card mt-2">
+
+                    <div class="p-2">
+                        <p>{{ $feed->name }}</p>
+
+                        <p class="p-1">{{ $feed->text }}</p>
+                    </div>
+                    <button style="width: 30px;" class="btn btn-outline-danger mb-2 ml-auto mr-2 p-1 rounded-circle" type="submit" name="">X</button>
                 </div>
-                <button style="width: 30px;" class="btn btn-outline-danger mb-2 ml-auto mr-2 p-1 rounded-circle" type="submit" name="">X</button>
             </div>
-        </form>
 
-        <form>
-            <div class="card mt-2">
-
-                <div class="form-group p-2">
-                    <p>Text, any</p>
-                </div>
-                <button style="width: 30px;" class="btn btn-outline-danger mb-2 ml-auto mr-2 p-1 rounded-circle" type="submit" name="">X</button>
-            </div>
-        </form>
-
-
-        <form>
-            <div class="card mt-2">
-
-                <div class="form-group p-2">
-                    <p>Text, any</p>
-                </div>
-                <button style="width: 30px;" class="btn btn-outline-danger mb-2 ml-auto mr-2 p-1 rounded-circle" type="submit" name="">X</button>
-            </div>
-        </form>
+            @endforeach
 
     </div>
 @endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 
+use App\WallFeed;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,9 +26,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('layouts/wall-feed');
+        $wallFeeds = WallFeed::all();
+
+        return view('layouts/wall-feed', compact("wallFeeds"));
     }
-    public function show()
+    public function show(Request $request)
     {
         return view("my-profile");
     }

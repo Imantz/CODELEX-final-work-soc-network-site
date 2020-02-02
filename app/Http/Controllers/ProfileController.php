@@ -28,6 +28,8 @@ class ProfileController extends Controller
 
     }
 
+
+
     public function updateMyProfile(Request $request, User $user)
     {
             $validatedData = $request->validate([
@@ -59,4 +61,9 @@ class ProfileController extends Controller
         return redirect("/my-profile");
     }
 
+    public function index()
+    {
+        $users = User::all()->except(Auth::id());
+        return view("all-users", compact("users"));
+    }
 }
