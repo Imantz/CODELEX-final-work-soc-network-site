@@ -1,9 +1,7 @@
-# TODO:
-#### till: february end..
-
 ### Social network
+###### february end..
 
-## Tasks left TODO
+###### Tasks left TODO:
 Features list  
 - Password recovery (with email)
 - Profile
@@ -31,7 +29,7 @@ Additional fields that must be added to profile edit and displays within the pro
 All of this information must be displayed when opening the profile view.
 Profile link should consist of friendly readable name like - /1-john-doe, 2-jane-doe
 
-####### Post wall
+###### Post wall
 
 Users can add new posts to their walls.  
 Post consists of adding the text, that can be formatted bold, italic, underline etc.  

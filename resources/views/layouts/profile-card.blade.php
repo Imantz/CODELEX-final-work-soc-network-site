@@ -1,6 +1,6 @@
 <div>
     <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="{{ asset("img/prof.jpeg") }}" alt="Card image cap" height="auto" width="auto">
+        <img class="card-img-top" src="{{ asset("img/prof.jpeg") }}" alt="there must be profile img" height="auto" width="auto">
         <div class="card-body">
             <h5 class="card-title text-center">{{ ucfirst(Auth::user()->name) }} {{ ucfirst(Auth::user()->surname) }}</h5>
             <p class="card-text text-center">{{ Auth::user()->email }}</p>
