@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -30,33 +29,11 @@ class ProfileController extends Controller
 
 
 
-    public function updateMyProfile(Request $request, User $user)
+    public function updateMyProfile()
     {
-            $validatedData = $request->validate([
-            'name' => ['required', 'max:10'],
-            'surname' => ['required'],
-            'img' => ['nullable'],
-            'phone' => ['nullable','numeric'],
-            'dob' => ['nullable'],
-            'city' => ['nullable'],
-            'state' => ['nullable'],
-            'zip' => ['nullable'],
-            'bio' => ['nullable'],
-        ]);
-
-        DB::table('users')
-            ->where('id', Auth::user()->id)
-            ->update([
-            'name'=> $validatedData["name"],
-            'surname'=> $validatedData["surname"],
-            'img'=> $validatedData["img"],
-            'phone'=> $validatedData["phone"],
-            'dob'=> $validatedData["dob"],
-            'city'=> $validatedData["city"],
-            'state'=> $validatedData["state"],
-            'zip'=> $validatedData["zip"],
-            'bio'=> $validatedData["bio"],
-        ]);
+        $user = User::where("id","=", Auth::user()->id )->first();
+        $user->update($this->validateRequest());
+        $this->storeImage($user);
 
         return redirect("/my-profile");
     }
@@ -65,5 +42,36 @@ class ProfileController extends Controller
     {
         $users = User::all()->except(Auth::id());
         return view("all-users", compact("users"));
+    }
+
+    private function storeImage(User $user)
+    {
+        if(request()->hasFile("img")){
+            $user->update([
+                "img" => request()->img->store("uploads","public"),
+            ]);
+        }
+    }
+
+    public function validateRequest()
+    {
+        return tap(
+            request()->validate([
+                'name' => ['required', 'max:10'],
+                'surname' => ['required'],
+                'phone' => ['nullable','numeric'],
+                'dob' => ['nullable'],
+                'city' => ['nullable'],
+                'state' => ['nullable'],
+                'zip' => ['nullable'],
+                'bio' => ['nullable'],
+            ]), function(){
+            if(request()->hasFile("img"))
+            {
+                request()->validate([
+                    "img"=>["file","image","max:5000"]
+                ]);
+            }
+        });
     }
 }

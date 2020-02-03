@@ -30,7 +30,7 @@ class HomeController extends Controller
 
         return view('layouts/wall-feed', compact("wallFeeds"));
     }
-    public function show(Request $request)
+    public function show()
     {
         return view("my-profile");
     }

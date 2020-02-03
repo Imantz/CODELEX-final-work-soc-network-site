@@ -15,7 +15,7 @@
         <div class="form-row">
             <div class="col-md-4 mb-3">
                 <label for="name">First name</label>
-                <input type="text" class="form-control" id="name" value="{{ ucfirst(Auth::user()->img) }}" name="name">
+                <input type="text" class="form-control" id="name" value="{{ ucfirst(Auth::user()->name) }}" name="name">
             </div>
             <div class="col-md-4 mb-3">
                 <label for="surname">Last name</label>
@@ -28,9 +28,8 @@
                 <p>Change profile picture</p>
                 <div class="input-group">
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="inputGroupFile01"
-                               aria-describedby="inputGroupFileAddon01" name="img">
-                        <label class="custom-file-label" for="inputGroupFile01">Choose image</label>
+                        <input type="file" class="custom-file-input" id="image" name="img">
+                        <label class="custom-file-label" for="image">Choose image</label>
                     </div>
                 </div>
             </div>
