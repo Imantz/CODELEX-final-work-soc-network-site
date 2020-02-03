@@ -12,6 +12,11 @@
                     <img class="card-img-top" src="{{ asset("img/default_pokemon.png") }}" alt="Card image cap">
                     @endif
                 <h6 class="text-center">{{ $user->name }}</h6>
+                    @if(Cache::has('user-is-online-' . $user->id))
+                        <span class="text-success">Online</span>
+                    @else
+                        <span class="text-secondary">Offline</span>
+                    @endif
             </a>
         </div>
         @endforeach

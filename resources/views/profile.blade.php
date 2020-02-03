@@ -3,7 +3,11 @@
 
 <div class="container">
     <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="{{ asset("img/prof.jpeg") }}" alt="Card image cap" height="auto" width="auto">
+        @if($user->img)
+        <img class="card-img-top" src="{{ asset("storage/". $user->img) }}" alt="Card image cap" height="auto" width="auto">
+        @else
+            <img class="card-img-top" src="{{ asset("img/default_pokemon.png") }}" alt="Card image cap" height="auto" width="auto">
+        @endif
         <div class="card-body">
             <h5 class="card-title text-center">{{ ucfirst($user->name) }} {{ ucfirst($user->surname) }}</h5>
             <p class="card-text text-center">{{ $user->email }}</p>
