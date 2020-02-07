@@ -19,6 +19,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/check', 'UserController@userOnlineStatus');
 Route::get('/my-profile', 'HomeController@show')->name('my-profile');
 Route::put('/my-profile', 'ProfileController@updateMyProfile')->name('my-profile');
-Route::get('/all-users', 'ProfileController@index')->name("all-users");
+Route::get('/all-users', 'ProfileController@allUsers')->name("all-users");
+
 Route::get('/profile/{user}', 'ProfileController@profile');
+
 

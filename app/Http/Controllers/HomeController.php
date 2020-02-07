@@ -6,6 +6,7 @@ use App\User;
 
 use App\WallFeed;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -26,7 +27,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $wallFeeds = WallFeed::all();
+        $wallFeeds = WallFeed::all()->where("user_id", Auth::user()->id);
 
         return view('layouts/wall-feed', compact("wallFeeds"));
     }

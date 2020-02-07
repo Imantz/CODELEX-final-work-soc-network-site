@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\WallFeed;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -15,19 +16,26 @@ class ProfileController extends Controller
 
     public function profile($username)
     {
-
-        [$id,$name,$surname] = explode("-",$username);
-        $user = User::where("id","=",$id )->first();
+        $user_details = explode("-",$username);
+        [$user_id,$user_name,$user_surname] = $user_details;
+        $user = User::where("id","=", $user_id )
+            ->where("name","=",$user_name)
+            ->where("surname","=",$user_surname)
+            ->first();
 
         if($user){
-            return view("profile", compact("user"));
+            $wallFeeds = $this->wall_feeds($user->id);
+            return view("profile-wall", compact("user","wallFeeds"));
         }else{
             return redirect("/");
         }
-
     }
 
-
+    private function wall_feeds($id)
+    {
+        $wallFeeds = WallFeed::all()->where("user_id", $id);
+        return $wallFeeds;
+    }
 
     public function updateMyProfile()
     {
@@ -38,7 +46,7 @@ class ProfileController extends Controller
         return redirect("/my-profile");
     }
 
-    public function index()
+    public function allUsers()
     {
         $users = User::all()->except(Auth::id());
         return view("all-users", compact("users"));
