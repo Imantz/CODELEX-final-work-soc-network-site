@@ -16,10 +16,23 @@
                     <p class="card-text text-center">{{ $user->email }}</p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item text-center">Wall</li>
-                    <li class="list-group-item text-center">Add friend</li>
-                    <li class="list-group-item text-center">Follow</li>
-                    <li class="list-group-item text-center">Gallery</li>
+                    <li class="list-group-item text-center" style="border-bottom: none">Wall</li>
+
+                    <li class="list-group-item text-center" style="border-bottom: none">
+
+                    @if(Auth::user()->hasFriendRequestPending($user))
+                        <p>Waiting {{ $user->name }} to accept your request</p>
+                    @elseif (Auth::user()->hasFriendRequestReceived($user))
+                        <a href="{{ route("friend.accept", ["name" => $user->name ]) }}">Accept</a>
+                    @elseif(Auth::user()->isFriendsWith($user))
+                            <a href="">unfriend</a>
+                    @elseif(Auth::user()->id !== $user->id)
+                        <a href="{{ route("friend.add", ["username"=>$user->name]) }}">Add as friend</a>
+                    @endif
+
+                    </li>
+
+                    <li class="list-group-item text-center" style="border-bottom: none">Gallery</li>
                     <li class="list-group-item text-center">Friends</li>
                 </ul>
                 {{--    <div class="card-body">--}}

@@ -50,11 +50,11 @@
                                     All users
                                 </a>
                             </li>
-                            <li>
-                                <div class="active-cyan-4">
-                                    <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-                                </div>
-                            </li>
+{{--                            <li>--}}
+{{--                                <div class="active-cyan-4">--}}
+{{--                                    <input class="form-control" type="text" placeholder="Search" aria-label="Search">--}}
+{{--                                </div>--}}
+{{--                            </li>--}}
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

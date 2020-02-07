@@ -27,7 +27,6 @@ Additional fields that must be added to profile edit and displays within the pro
 - Birthday
 
 All of this information must be displayed when opening the profile view.
-Profile link should consist of friendly readable name like - /1-john-doe, 2-jane-doe
 
 ###### Post wall
 
