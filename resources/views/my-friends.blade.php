@@ -5,9 +5,14 @@
     <br>
 
     <br>
-    <ul>
+    <ul style="list-style-type: none;">
         @foreach($requests as $request)
-            <li>friend request: {{ $request->name }}</li>
+            <li class="row">
+                <p> friend request: {{ $request->name . " " . $request->surname }}
+                    <a class="btn btn-outline-success" href="{{ route("friend.accept", ["username"=>$request->name]) }}">Accept</a>
+                    <a class="btn btn-outline-danger" href="">Decline</a>
+                </p>
+            </li>
         @endforeach
     </ul>
     <div class="row">

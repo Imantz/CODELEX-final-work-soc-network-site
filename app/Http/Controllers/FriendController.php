@@ -17,9 +17,9 @@ class FriendController extends Controller
     }
 
     public function getAddFriend($username){
-        $user = User::where('username', $username)->first;
+        $user = User::where('name', $username)->first();
         if(!$user){
-            return redirect()->route("myFriends")->with("info","User not found");
+            return redirect()->route("friends")->with("info","User not found");
         }
 
         if(Auth::user()->id === $user->id){
@@ -28,39 +28,43 @@ class FriendController extends Controller
 
         if(Auth::user()->hasFriendRequestPending($user) || $user->hasFriendRequestPending(Auth::user()))
         {
-            return redirect()->route("myFriends", ["name"=>$user->name])
+            return redirect()->route("friends", ["name"=>$user->name])
                             ->with("info","friend request already pending");
         }
 
         if(Auth::user()->isFriendsWith($user))
         {
             return redirect()
-                ->route("myFriends",["name"=>$user->name])
+                ->route("friends",["name"=>$user->name])
                 ->with("info","already friends");
         }
 
         Auth::user()->addFriend($user);
-        return redirect()
-            ->route("myFriends",["name"=>$user->name])
-            ->with("info","Friend request sent");
+
+        return redirect("profile/$user->id-$user->name-$user->surname");
     }
 
     public function getAcceptFriend($username)
     {
-        $user = User::where('username', $username)->first;
+        $user = User::where('name', $username)->first();
         if(!$user){
-            return redirect()->route("myFriends")->with("info","User not found");
+            return redirect()->route("friends")->with("info","User not found");
         }
 
         if(!Auth::user()->hasFriendRequestReceived($user)){
-            return redirect()->route("myFriends");
+            return redirect()->route("friends");
         }
 
         Auth::user()->acceptFriendRequest($user);
         return redirect()
-            ->route("myFriends",["user"=>$user->name])
+            ->route("friends",["user"=>$user->name])
             ->with("info","friend request accepted");
     }
 
-
+    public function getUnfriend($user)
+    {
+        $user = User::where('name', $user)->first();
+        Auth::user()->unfriend($user);
+        return redirect("profile/$user->id-$user->name-$user->surname");
+    }
 }

@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
@@ -37,6 +39,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
     public function friendsOfMine()
     {
         return $this->belongsToMany("App\User","friends","user_id","friend_id");
@@ -49,18 +52,18 @@ class User extends Authenticatable
 
     public function friends()
     {
-        return $this->friendsOfMine()->wherePivot("accepted",true)->get()
-            ->merge($this->friendOf()->where("accepted",true)->get());
+        return $this->friendsOfMine()->wherePivot("accepted","accepted")->get()
+            ->merge($this->friendOf()->where("accepted","accepted")->get());
     }
 
     public function friendRequests()
     {
-        return $this->friendsOfMine()->wherePivot("accepted", false)->get();
+        return $this->friendsOfMine()->wherePivot("accepted", "pending")->get();
     }
 
     public function friendRequestsPending()
     {
-        return $this->friendOf()->wherePivot("accepted", false)->get();
+        return $this->friendOf()->wherePivot("accepted", "pending")->get();
     }
 
     public function hasFriendRequestPending(User $user)
@@ -78,10 +81,17 @@ class User extends Authenticatable
         $this->friendOf()->attach($user->id);
     }
 
+    public function unfriend(User $user)
+    {
+        $this->friendOf()->detach($user->id);
+        $this->friendsOfMine()->detach($user->id);
+    }
+
     public function acceptFriendRequest(User $user)
     {
-        $this->friendRequests()->where("id",$user->id)->first()->pivot->update([
-            "accepted"=>true
+        $this->friendRequests()->where("id",$user->id)->first()
+            ->pivot->update([
+            "accepted"=>"accepted"
         ]);
     }
 
