@@ -1,17 +1,19 @@
 @extends('home')
 
 @section('wall')
-        <?php
 
-            //TODO passwords change and email
-
-        ?>
+    {{-- TODO  ErrorHandling for passwords.--}}
+    {{-- TODO  Name, surname required . again errorHandling--}}
+    {{-- TODO  Controller* change passwords--}}
+    {{-- TODO  DB insert mobile & email    --}}
+    {{-- TODO  Delete profile photo    --}}
 
 
     <form class="ml-5" action="my-profile" method="POST" enctype="multipart/form-data">
         <h4>Edit your profile info</h4>
         @method('PUT')
         @csrf
+            {{--   Name & Surname   --}}
         <div class="form-row">
             <div class="col-md-4 mb-3">
                 <label for="name">First name</label>
@@ -22,7 +24,29 @@
                 <input type="text" class="form-control" id="surname" value="{{ ucfirst(Auth::user()->surname) }}" name="surname">
             </div>
         </div>
-
+            {{--   Email & Mobile    --}}
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" value="{{ ucfirst(Auth::user()->email) }}" name="email">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="mobile">Mobile</label>
+                <input type="text" class="form-control" id="mobile" value="{{ ucfirst(Auth::user()->mobile) }}" name="mobile">
+            </div>
+        </div>
+            {{--   Password & Password_confirmation    --}}
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label for="password">password</label>
+                <input id="password" type="password" class="form-control" name="password">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="password-confirm">Confirm password</label>
+                <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
+            </div>
+        </div>
+            {{--   Img & Phone    --}}
         <div class="form-row">
             <div class="col-md-4 mb-3">
                 <p>Change profile picture</p>
@@ -38,7 +62,7 @@
                 <input type="text" class="form-control mt-2" id="validationDefault01" placeholder="" value="{{ Auth::user()->phone }}" name="phone">
             </div>
         </div>
-
+            {{--   Dob & City    --}}
         <div class="form-row">
             <div class="col-md-4 mb-3">
                 <label for="date">Birth date:</label>
@@ -49,9 +73,8 @@
                 <input type="text" class="form-control" id="validationDefault03" value="{{ Auth::user()->city }}" name="city">
             </div>
         </div>
-
+            {{--   State & Zip    --}}
         <div class="form-row">
-
             <div class="col-md-4 mb-3">
                 <label for="validationDefault04">State</label>
                 <input type="text" class="form-control" id="validationDefault04" value="{{ Auth::user()->state }}" name="state">
@@ -61,11 +84,13 @@
                 <input type="text" class="form-control" id="validationDefault05" value="{{ Auth::user()->zip }}" name="zip">
             </div>
         </div>
-
+            {{--   Bio & Submit    --}}
         <div class="form-row">
             <div class="col-md-8 mb-3">
                 <label for="about">About me:</label>
-                <textarea style="resize: none;" class="form-control" id="about" placeholder="Any text there.." rows="4" name="bio"></textarea>
+                <textarea style="resize: none; padding: 5px" class="form-control" id="about" rows="4" name="bio">
+                    {{ Auth::user()->bio }}
+                </textarea>
             </div>
         </div>
         <button class="btn btn-outline-dark " type="submit" name="submit">Save</button>

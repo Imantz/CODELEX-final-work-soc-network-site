@@ -99,4 +99,5 @@ class User extends Authenticatable
     {
         return (bool) $this->friends()->where("id",$user->id)->count();
     }
+
 }

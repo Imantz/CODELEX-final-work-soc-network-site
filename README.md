@@ -4,9 +4,7 @@
 ###### Tasks left TODO:
 Features list  
 - Password recovery (with email)
-- Profile
 - Posts wall
-- Friends
 - Followers
 - Pictures gallery
 - Like feature
@@ -18,7 +16,6 @@ Password can be changed and minimal requirement when changing the password is 6 
 
 ###### Profile
 
-Option to set/change profile picture.  
 Every aspect of information should be able to change.  
 Additional fields that must be added to profile edit and displays within the profile view  
 - Phone number

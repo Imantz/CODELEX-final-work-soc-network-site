@@ -14,7 +14,7 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::POST('/', 'WallFeedsController@create');
+Route::post('/', 'WallFeedsController@create');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/check', 'UserController@userOnlineStatus');
 

@@ -39,7 +39,8 @@ class ProfileController extends Controller
 
     public function updateMyProfile()
     {
-        $user = User::where("id","=", Auth::user()->id )->first();
+
+        $user = Auth::user();
         $user->update($this->validateRequest());
         $this->storeImage($user);
 
