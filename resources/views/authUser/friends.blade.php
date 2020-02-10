@@ -1,4 +1,4 @@
-@extends("home")
+@extends("auth-user")
 @section("wall")
 
     <h1>My friends!!</h1>

@@ -4,7 +4,7 @@
 
     <div class="container">
         <div class="row">
-                    @include("layouts/profile-card")
+                    @include("authUser.profile-card")
             <div class="justify-content-end col-md-8">
                     @yield("wall")
             </div>

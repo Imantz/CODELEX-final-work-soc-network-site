@@ -1,4 +1,4 @@
-@extends("layouts/app")
+@extends("layouts.app")
 @section("content")
 
 
@@ -16,12 +16,16 @@
                     <p class="card-text text-center">{{ $user->email }}</p>
                 </div>
                 <ul class="list-group list-group-flush">
+                    @if(Route::currentRouteName() !== "profile")
                     <li class="list-group-item text-center" style="border-bottom: none">Wall</li>
-
+                    @endif
                     <li class="list-group-item text-center" style="border-bottom: none">
 
                     @if(Auth::user()->hasFriendRequestPending($user))
                         <p>Waiting to accept your request</p>
+                            <a href="">
+                                <a href="{{ route("friend.remove", ["username"=>$user->name]) }}">Remove</a>
+                            </a>
                     @elseif (Auth::user()->hasFriendRequestReceived($user))
 
                         <a href="{{ route("friend.accept", ["username" => $user->name ]) }}">Accept</a>
@@ -29,13 +33,10 @@
                     @elseif(Auth::user()->isFriendsWith($user))
                             <a href="{{ route("friend.remove", ["username"=>$user->name]) }}">Remove</a>
                     @elseif(Auth::user()->id !== $user->id)
-                        <a class="btn" href="{{ route("friend.add", ["username"=>$user->name]) }}">Send friend request</a>
+                        <a class="btn" href="{{ route("friend.add", [$user->id,$user->name,$user->surname]) }}">Send friend request</a>
                     @endif
 
                     </li>
-
-                    <li class="list-group-item text-center" style="border-bottom: none">Gallery</li>
-                    <li class="list-group-item text-center">Friends</li>
                 </ul>
             </div>
 

@@ -13,11 +13,16 @@ class FriendController extends Controller
 
         $friends = Auth::user()->friends();
         $requests = Auth::user()->friendRequests();
-        return view("my-friends", compact(["friends","requests"]));
+        return view("authUser/friends", compact(["friends","requests"]));
     }
 
-    public function getAddFriend($username){
-        $user = User::where('name', $username)->first();
+    public function getAddFriend($id,$name,$surname){
+
+        $user = User::where('id', $id)
+            ->where("name",$name)
+            ->where("surname",$surname)
+            ->first();
+
         if(!$user){
             return redirect()->route("friends")->with("info","User not found");
         }

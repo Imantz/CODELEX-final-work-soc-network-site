@@ -1,4 +1,4 @@
-@extends("profile")
+@extends("users")
 @section("wall")
 
     @foreach($wallFeeds as $feed)
@@ -11,7 +11,6 @@
 
                     <p class="p-1">{{ $feed->text }}</p>
                 </div>
-{{--                //there must be like button--}}
             </div>
         </div>
 

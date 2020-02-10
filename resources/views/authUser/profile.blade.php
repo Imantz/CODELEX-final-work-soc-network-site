@@ -1,4 +1,4 @@
-@extends('home')
+@extends('auth-user')
 
 @section('wall')
 
@@ -7,6 +7,7 @@
     {{-- TODO  Controller* change passwords--}}
     {{-- TODO  DB insert mobile & email    --}}
     {{-- TODO  Delete profile photo    --}}
+    {{-- TODO Change phone number in user table to varchar or bigBIGBIIIGInt?. --}}
 
 
     <form class="ml-5" action="my-profile" method="POST" enctype="multipart/form-data">
@@ -32,7 +33,7 @@
             </div>
             <div class="col-md-4 mb-3">
                 <label for="mobile">Mobile</label>
-                <input type="text" class="form-control" id="mobile" value="{{ ucfirst(Auth::user()->mobile) }}" name="mobile">
+                <input type="text" class="form-control" id="mobile" value="{{ Auth::user()->phone }}" name="phone">
             </div>
         </div>
             {{--   Password & Password_confirmation    --}}
@@ -56,10 +57,6 @@
                         <label class="custom-file-label" for="image">Choose image</label>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <label for="validationDefault01">Phone number</label>
-                <input type="text" class="form-control mt-2" id="validationDefault01" placeholder="" value="{{ Auth::user()->phone }}" name="phone">
             </div>
         </div>
             {{--   Dob & City    --}}

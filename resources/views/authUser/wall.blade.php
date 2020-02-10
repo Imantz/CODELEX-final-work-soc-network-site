@@ -1,7 +1,7 @@
-@extends("home")
+@extends("auth-user")
 @section("wall")
     <div>
-        <form action="/" method="POSt">
+        <form action="/" method="POST">
             @csrf
             <div class="card">
                 <div class="card-header">Izveidot ierakstu</div>

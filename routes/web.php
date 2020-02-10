@@ -13,21 +13,22 @@
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('authUser');
 Route::post('/', 'WallFeedsController@create');
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/authUser', 'HomeController@index')->name('authUser');
 Route::get('/check', 'UserController@userOnlineStatus');
-
+Route::get('/all-users', 'ProfileController@allUsers')->name("all-users");
 Route::get('/my-profile', 'HomeController@show')->name('my-profile');
 Route::put('/my-profile', 'ProfileController@updateMyProfile')->name('my-profile');
-
 Route::get('/my-friends' , 'FriendController@myFriends')->name("friends");
-Route::get('/my-friends/add/{username}' , 'FriendController@getAddFriend')->name("friend.add");
+
+Route::get('/profile/{id}-{name}-{surname}/add' , 'FriendController@getAddFriend')->name("friend.add");
+
 Route::get('/my-friends/remove/{username}' , 'FriendController@getUnfriend')->name("friend.remove");
 Route::get('/my-friends/accept/{username}' , 'FriendController@getAcceptFriend')->name("friend.accept");
 
-Route::get('/all-users', 'ProfileController@allUsers')->name("all-users");
-Route::get('/profile/{user}', 'ProfileController@profile')->name("profile");
+
+Route::get('/profile/{id}-{name}-{surname}', 'ProfileController@profile')->name("profile");
 
 
 

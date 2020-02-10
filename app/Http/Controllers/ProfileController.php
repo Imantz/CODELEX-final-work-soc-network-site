@@ -14,18 +14,16 @@ class ProfileController extends Controller
         $this->middleware('auth');
     }
 
-    public function profile($username)
+    public function profile($id,$name,$surname)
     {
-        $user_details = explode("-",$username);
-        [$user_id,$user_name,$user_surname] = $user_details;
-        $user = User::where("id","=", $user_id )
-            ->where("name","=",$user_name)
-            ->where("surname","=",$user_surname)
+        $user = User::where("id","=", $id )
+            ->where("name","=",$name)
+            ->where("surname","=",$surname)
             ->first();
 
         if($user){
             $wallFeeds = $this->wall_feeds($user->id);
-            return view("profile-wall", compact("user","wallFeeds"));
+            return view("users/wall", compact("user","wallFeeds"));
         }else{
             return redirect("/");
         }
@@ -33,13 +31,12 @@ class ProfileController extends Controller
 
     private function wall_feeds($id)
     {
-        $wallFeeds = WallFeed::all()->where("user_id", $id);
-        return $wallFeeds;
+        return WallFeed::all()->where("user_id", $id);
+
     }
 
     public function updateMyProfile()
     {
-
         $user = Auth::user();
         $user->update($this->validateRequest());
         $this->storeImage($user);

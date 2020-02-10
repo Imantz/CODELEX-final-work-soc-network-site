@@ -27,12 +27,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $wallFeeds = WallFeed::all()->where("user_id", Auth::user()->id);
+        $wallFeeds = WallFeed::where("user_id", Auth::user()->id)
+            ->orderBy('created_at', 'DESC')
+            ->get();
 
-        return view('layouts/wall-feed', compact("wallFeeds"));
+        return view('authUser/wall', compact("wallFeeds"));
     }
     public function show()
     {
-        return view("my-profile");
+        return view("authUser/profile");
     }
 }

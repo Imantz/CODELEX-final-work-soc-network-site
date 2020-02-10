@@ -10,11 +10,9 @@
             <p class="card-text text-center">{{ Auth::user()->email }}</p>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item text-center" style="border-bottom: none"><a class="card-link" href="">Gallery</a></li>
             <li class="list-group-item text-center" style="border-bottom: none">
                 <a class="card-link" href="{{ route("friends") }}">Friends</a>
             </li>
-            <li class="list-group-item text-center"><a class="card-link" href="">Followers</a></li>
         </ul>
     </div>
 </div>
