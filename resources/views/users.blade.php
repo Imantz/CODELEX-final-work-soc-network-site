@@ -24,14 +24,14 @@
                     @if(Auth::user()->hasFriendRequestPending($user))
                         <p>Waiting to accept your request</p>
                             <a href="">
-                                <a href="{{ route("friend.remove", ["username"=>$user->name]) }}">Remove</a>
+                                <a href="{{ route("friend.remove", [$user->id,$user->name,$user->surname]) }}">Cancel request</a>
                             </a>
                     @elseif (Auth::user()->hasFriendRequestReceived($user))
 
                         <a href="{{ route("friend.accept", ["username" => $user->name ]) }}">Accept</a>
                         <a href="">Decline</a>
                     @elseif(Auth::user()->isFriendsWith($user))
-                            <a href="{{ route("friend.remove", ["username"=>$user->name]) }}">Remove</a>
+                            <a href="{{ route("friend.remove", [$user->id,$user->name,$user->surname]) }}">Remove</a>
                     @elseif(Auth::user()->id !== $user->id)
                         <a class="btn" href="{{ route("friend.add", [$user->id,$user->name,$user->surname]) }}">Send friend request</a>
                     @endif

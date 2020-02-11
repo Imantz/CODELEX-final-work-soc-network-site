@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/someStyle.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -45,16 +46,30 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route("all-users") }}">
-                                    All users
-                                </a>
-                            </li>
-{{--                            <li>--}}
-{{--                                <div class="active-cyan-4">--}}
-{{--                                    <input class="form-control" type="text" placeholder="Search" aria-label="Search">--}}
-{{--                                </div>--}}
-{{--                            </li>--}}
+                            {{--  Friend notification icon  --}}
+                        <li class="position-relative">
+                            <a href="{{ route("friends") }}">
+                                @if(Auth::user()->friendRequestCount() !== 0)
+                                <img class="friend-notification-has-friend-img" src="{{ asset("notificationIcons/friend_request.svg") }}"
+                                     alt="notification icon" height="40" width="40">
+                                <span class="danger friend-notification-has-friend-number">
+                                    {{ Auth::user()->friendRequestCount() }}
+                                </span>
+                                @else
+
+                                    <img class="friend-notification-empty-img" src="{{ asset("notificationIcons/friend_request.svg") }}" alt="" height="40" width="40">
+                                    <span class="danger friend-notification-empty-number">{{ Auth::user()->friendRequestCount() }}</span>
+
+                                @endif
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route("all-users") }}">
+                                All users
+                            </a>
+                        </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

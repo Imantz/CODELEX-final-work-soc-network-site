@@ -1,0 +1,25 @@
+nav .friend-notification-has-friend-number {
+    position:absolute;
+    left:25px;
+    top:-5px;
+    z-index: 1;
+    background-color: red;
+    color:white;
+    padding: 0 6px;
+    border-radius: 50%;
+}
+
+nav .friend-notification-empty-number {
+    position:absolute;
+    left:25px;
+    top:-5px;
+    z-index: 1;
+    background-color: #e2e2e2;
+    color:white;
+    padding: 0 6px;
+    border-radius: 50%;
+}
+
+nav .friend-notification-empty-img {
+    filter: blur(1px) grayscale(1%);
+}

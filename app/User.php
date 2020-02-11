@@ -71,6 +71,11 @@ class User extends Authenticatable
         return (bool) $this->friendRequestsPending()->where("id", $user->id)->count();
     }
 
+    public function friendRequestCount()
+    {
+        return $this->friendRequests()->count();
+    }
+
     public function hasFriendRequestReceived(User $user)
     {
         return (bool) $this->friendRequests()->where("id",$user->id)->count();

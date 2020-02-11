@@ -8,9 +8,9 @@
     <ul style="list-style-type: none;">
         @foreach($requests as $request)
             <li class="row">
-                <p> friend request: {{ $request->name . " " . $request->surname }}
-                    <a class="btn btn-outline-success" href="{{ route("friend.accept", ["username"=>$request->name]) }}">Accept</a>
-                    <a class="btn btn-outline-danger" href="">Decline</a>
+                <p> friend request: {{ "$request->name $request->surname" }}
+                    <a class="btn btn-outline-success" href="{{ route("friend.accept", [$request->id,$request->name,$request->surname]) }}">Accept</a>
+                    <a class="btn btn-outline-danger" href="{{ route("friend.remove", [$request->id,$request->name,$request->surname]) }}">Decline</a>
                 </p>
             </li>
         @endforeach
@@ -39,8 +39,6 @@
                     <h6 class="text-center">{{ $user->name }}</h6>
                     @if(Cache::has('user-is-online-' . $user->id))
                         <span class="text-success">Online</span>
-                    @else
-                        <span class="text-secondary">Offline</span>
                     @endif
                 </a>
             </div>

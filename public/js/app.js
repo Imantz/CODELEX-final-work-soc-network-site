@@ -1949,17 +1949,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ProfileImageUploadComponent.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ProfileImageUploadComponent.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /authUser/imant/Darbvirsma/soc-network/resources/js/components/ProfileImageUploadComponent.vue: Unexpected token (29:20)\n\n\u001b[0m \u001b[90m 27 | \u001b[39m    data(){\u001b[0m\n\u001b[0m \u001b[90m 28 | \u001b[39m        \u001b[36mreturn\u001b[39m {\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 29 | \u001b[39m            image\u001b[33m:\u001b[39m {{ \u001b[33m!\u001b[39m\u001b[33m!\u001b[39m json_encode() \u001b[33m!\u001b[39m\u001b[33m!\u001b[39m}}\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 30 | \u001b[39m        }\u001b[0m\n\u001b[0m \u001b[90m 31 | \u001b[39m    }\u001b[0m\n\u001b[0m \u001b[90m 32 | \u001b[39m    methods\u001b[33m:\u001b[39m {\u001b[0m\n    at Parser.raise (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:7017:17)\n    at Parser.unexpected (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:8395:16)\n    at Parser.parseIdentifierName (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:10357:18)\n    at Parser.parseIdentifier (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:10335:23)\n    at Parser.parseMaybePrivateName (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:9700:19)\n    at Parser.parsePropertyName (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:10159:126)\n    at Parser.parseObjectMember (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:10060:10)\n    at Parser.parseObj (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:9991:25)\n    at Parser.parseExprAtom (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:9616:28)\n    at Parser.parseExprSubscripts (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:9259:23)\n    at Parser.parseMaybeUnary (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:9239:21)\n    at Parser.parseExprOps (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:9109:23)\n    at Parser.parseMaybeConditional (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:9082:23)\n    at Parser.parseMaybeAssign (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:9037:21)\n    at Parser.parseObjectProperty (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:10121:101)\n    at Parser.parseObjPropValue (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:10146:101)\n    at Parser.parseObjectMember (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:10070:10)\n    at Parser.parseObj (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:9991:25)\n    at Parser.parseExprAtom (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:9616:28)\n    at Parser.parseExprSubscripts (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:9259:23)\n    at Parser.parseMaybeUnary (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:9239:21)\n    at Parser.parseExprOps (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:9109:23)\n    at Parser.parseMaybeConditional (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:9082:23)\n    at Parser.parseMaybeAssign (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:9037:21)\n    at Parser.parseExpression (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:8989:23)\n    at Parser.parseReturnStatement (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:11057:28)\n    at Parser.parseStatementContent (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:10738:21)\n    at Parser.parseStatement (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:10690:17)\n    at Parser.parseBlockOrModuleBlockBody (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:11264:25)\n    at Parser.parseBlockBody (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:11251:10)\n    at Parser.parseBlock (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:11235:10)\n    at Parser.parseFunctionBody (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:10252:24)\n    at Parser.parseFunctionBodyAndFinish (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:10222:10)\n    at Parser.parseMethod (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:10187:10)\n    at Parser.parseObjectMethod (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:10104:19)\n    at Parser.parseObjPropValue (/authUser/imant/Darbvirsma/soc-network/node_modules/@babel/parser/lib/index.js:10146:23)");
-
-/***/ }),
-
 /***/ "./node_modules/bootstrap/dist/js/bootstrap.js":
 /*!*****************************************************!*\
   !*** ./node_modules/bootstrap/dist/js/bootstrap.js ***!
@@ -37638,7 +37627,7 @@ function addStyle (obj, options) {
 	// If a transform function was defined, run it on the css
 	if (options.transform && obj.css) {
 	    result = typeof options.transform === 'function'
-		 ? options.transform(obj.css)
+		 ? options.transform(obj.css) 
 		 : options.transform.default(obj.css);
 
 	    if (result) {
@@ -38816,52 +38805,6 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ProfileImageUploadComponent.vue?vue&type=template&id=8e5a0f62&":
-/*!******************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ProfileImageUploadComponent.vue?vue&type=template&id=8e5a0f62& ***!
-  \******************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "hello" },
-    [
-      _c("picture-input", {
-        ref: "pictureInput",
-        attrs: {
-          width: "300",
-          height: "300",
-          margin: "16",
-          accept: "image/jpeg,image/png",
-          size: "10",
-          "button-class": "btn",
-          "custom-strings": {
-            upload: "<h1>Bummer!</h1>",
-            drag: "Drag a 😺 Pic or GTFO"
-          }
-        },
-        on: { change: _vm.onChange }
-      })
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
 /***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
 /*!********************************************************************!*\
   !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
@@ -38998,7 +38941,7 @@ var component = Object(_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_I
   null,
   "431cb064",
   null
-
+  
 )
 
 /* hot reload */
@@ -39018,7 +38961,7 @@ component.options.__file = "node_modules/vue-picture-input/PictureInput.vue"
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _vue_loader_lib_index_js_vue_loader_options_PictureInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../vue-loader/lib??vue-loader-options!./PictureInput.vue?vue&type=script&lang=js& */ "./node_modules/vue-loader/lib/index.js?!./node_modules/vue-picture-input/PictureInput.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_vue_loader_lib_index_js_vue_loader_options_PictureInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]);
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_vue_loader_lib_index_js_vue_loader_options_PictureInput_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -39034,7 +38977,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_PictureInput_vue_vue_type_style_index_0_id_431cb064_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../style-loader!../css-loader??ref--6-1!../vue-loader/lib/loaders/stylePostLoader.js!../postcss-loader/src??ref--6-2!../vue-loader/lib??vue-loader-options!./PictureInput.vue?vue&type=style&index=0&id=431cb064&scoped=true&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./node_modules/vue-picture-input/PictureInput.vue?vue&type=style&index=0&id=431cb064&scoped=true&lang=css&");
 /* harmony import */ var _style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_PictureInput_vue_vue_type_style_index_0_id_431cb064_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_PictureInput_vue_vue_type_style_index_0_id_431cb064_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_PictureInput_vue_vue_type_style_index_0_id_431cb064_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_PictureInput_vue_vue_type_style_index_0_id_431cb064_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_PictureInput_vue_vue_type_style_index_0_id_431cb064_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a);
+ /* harmony default export */ __webpack_exports__["default"] = (_style_loader_index_js_css_loader_index_js_ref_6_1_vue_loader_lib_loaders_stylePostLoader_js_postcss_loader_src_index_js_ref_6_2_vue_loader_lib_index_js_vue_loader_options_PictureInput_vue_vue_type_style_index_0_id_431cb064_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -51132,7 +51075,6 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
-Vue.component('image-upload-component', __webpack_require__(/*! ./components/ProfileImageUploadComponent.vue */ "./resources/js/components/ProfileImageUploadComponent.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -51140,10 +51082,7 @@ Vue.component('image-upload-component', __webpack_require__(/*! ./components/Pro
  */
 
 var app = new Vue({
-  el: '#app' // components: {
-  //     ProfileImageUpload
-  // },
-
+  el: '#app'
 });
 
 /***/ }),
@@ -51220,7 +51159,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   null,
   null,
   null
-
+  
 )
 
 /* hot reload */
@@ -51240,7 +51179,7 @@ component.options.__file = "resources/js/components/ExampleComponent.vue"
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ExampleComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]);
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -51257,75 +51196,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/js/components/ProfileImageUploadComponent.vue":
-/*!*****************************************************************!*\
-  !*** ./resources/js/components/ProfileImageUploadComponent.vue ***!
-  \*****************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ProfileImageUploadComponent_vue_vue_type_template_id_8e5a0f62___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ProfileImageUploadComponent.vue?vue&type=template&id=8e5a0f62& */ "./resources/js/components/ProfileImageUploadComponent.vue?vue&type=template&id=8e5a0f62&");
-/* harmony import */ var _ProfileImageUploadComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProfileImageUploadComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/ProfileImageUploadComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _ProfileImageUploadComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ProfileImageUploadComponent_vue_vue_type_template_id_8e5a0f62___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _ProfileImageUploadComponent_vue_vue_type_template_id_8e5a0f62___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/ProfileImageUploadComponent.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/ProfileImageUploadComponent.vue?vue&type=script&lang=js&":
-/*!******************************************************************************************!*\
-  !*** ./resources/js/components/ProfileImageUploadComponent.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfileImageUploadComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ProfileImageUploadComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ProfileImageUploadComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfileImageUploadComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]);
-
-/***/ }),
-
-/***/ "./resources/js/components/ProfileImageUploadComponent.vue?vue&type=template&id=8e5a0f62&":
-/*!************************************************************************************************!*\
-  !*** ./resources/js/components/ProfileImageUploadComponent.vue?vue&type=template&id=8e5a0f62& ***!
-  \************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfileImageUploadComponent_vue_vue_type_template_id_8e5a0f62___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ProfileImageUploadComponent.vue?vue&type=template&id=8e5a0f62& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ProfileImageUploadComponent.vue?vue&type=template&id=8e5a0f62&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfileImageUploadComponent_vue_vue_type_template_id_8e5a0f62___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ProfileImageUploadComponent_vue_vue_type_template_id_8e5a0f62___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -51349,8 +51219,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /authUser/imant/Darbvirsma/soc-network/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /authUser/imant/Darbvirsma/soc-network/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/imant/Darbvirsma/soc-network/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/imant/Darbvirsma/soc-network/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -49,9 +49,12 @@ class FriendController extends Controller
         return redirect("profile/$user->id-$user->name-$user->surname");
     }
 
-    public function getAcceptFriend($username)
+    public function getAcceptFriend($id,$name,$surname)
     {
-        $user = User::where('name', $username)->first();
+        $user = User::where('id', $id)
+            ->where("name",$name)
+            ->where("surname",$surname)
+            ->first();
         if(!$user){
             return redirect()->route("friends")->with("info","User not found");
         }
@@ -62,13 +65,17 @@ class FriendController extends Controller
 
         Auth::user()->acceptFriendRequest($user);
         return redirect()
-            ->route("friends",["user"=>$user->name])
+            ->route("friends",[$user->id,$user->name,$user->surname])
             ->with("info","friend request accepted");
     }
 
-    public function getUnfriend($user)
+    public function getUnfriend($id,$name,$surname)
     {
-        $user = User::where('name', $user)->first();
+        $user = User::where('id', $id)
+            ->where("name",$name)
+            ->where("surname",$surname)
+            ->first();
+
         Auth::user()->unfriend($user);
         return redirect("profile/$user->id-$user->name-$user->surname");
     }
