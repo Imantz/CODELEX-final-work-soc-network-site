@@ -17,26 +17,44 @@
                 </div>
                 <ul class="list-group list-group-flush">
                     @if(Route::currentRouteName() !== "profile")
-                    <li class="list-group-item text-center" style="border-bottom: none">Wall</li>
+                        <li class="list-group-item text-center" style="border-bottom: none">Wall</li>
                     @endif
                     <li class="list-group-item text-center" style="border-bottom: none">
 
-                    @if(Auth::user()->hasFriendRequestPending($user))
-                        <p>Waiting to accept your request</p>
+                        @if(Auth::user()->hasFriendRequestPending($user))
+                            <p>Waiting to accept your request</p>
                             <a href="">
                                 <a href="{{ route("friend.remove", [$user->id,$user->name,$user->surname]) }}">Cancel request</a>
                             </a>
-                    @elseif (Auth::user()->hasFriendRequestReceived($user))
+                        @elseif (Auth::user()->hasFriendRequestReceived($user))
 
-                        <a href="{{ route("friend.accept", ["username" => $user->name ]) }}">Accept</a>
-                        <a href="">Decline</a>
-                    @elseif(Auth::user()->isFriendsWith($user))
-                            <a href="{{ route("friend.remove", [$user->id,$user->name,$user->surname]) }}">Remove</a>
-                    @elseif(Auth::user()->id !== $user->id)
-                        <a class="btn" href="{{ route("friend.add", [$user->id,$user->name,$user->surname]) }}">Send friend request</a>
-                    @endif
+                            <a href="{{ route("friend.accept", [$user->id,$user->name,$user->surname]) }}">Accept</a>
+                            <a href="">Decline</a>
+                        @elseif(Auth::user()->isFriendsWith($user))
+                            <a href="{{ route("friend.remove", [$user->id,$user->name,$user->surname]) }}">Remove friend</a>
+                        @elseif(Auth::user()->id !== $user->id)
+                            <a class="btn" href="{{ route("friend.add", [$user->id,$user->name,$user->surname]) }}">Send friend request</a>
+                        @endif
 
                     </li>
+                @if(Auth::user()->isFollowing($user))
+
+                            <li class="list-group-item text-center" style="border-bottom: none">
+                                <form action="{{ route("unfollow", [$user->id,$user->name,$user->surname]) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn" type="submit">Unfollow</button>
+                                </form>
+                            </li>
+
+                @else
+                            <li class="list-group-item text-center" style="border-bottom: none">
+                                <form action="{{ route("follow", [$user->id,$user->name,$user->surname]) }}" method="POST">
+                                    @csrf
+                                    <button class="btn" type="submit">Follow</button>
+                                </form>
+                            </li>
+                    @endif
                 </ul>
             </div>
 

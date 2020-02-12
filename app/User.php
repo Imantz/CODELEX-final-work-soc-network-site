@@ -105,4 +105,10 @@ class User extends Authenticatable
         return (bool) $this->friends()->where("id",$user->id)->count();
     }
 
+    public function isFollowing(User $user): bool
+    {
+
+        return Follower::where("user_id",Auth::user()->id)
+                                ->where("follower_id",$user->id)->count();
+    }
 }

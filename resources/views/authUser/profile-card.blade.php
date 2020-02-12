@@ -8,10 +8,17 @@
         <div class="card-body">
             <h5 class="card-title text-center">{{ ucfirst(Auth::user()->name) }} {{ ucfirst(Auth::user()->surname) }}</h5>
             <p class="card-text text-center">{{ Auth::user()->email }}</p>
+            <p class="card-text text-center">id: {{ Auth::user()->id }}</p>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item text-center" style="border-bottom: none">
                 <a class="card-link" href="{{ route("friends") }}">Friends</a>
+            </li>
+            <li class="list-group-item text-center" style="border-bottom: none">
+                <a class="card-link" href="{{ route("following") }}">I'm following</a>
+            </li>
+            <li class="list-group-item text-center" style="border-bottom: none">
+                <a class="card-link" href="{{ route("followers") }}">My followers</a>
             </li>
         </ul>
     </div>

@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Auth;
 
 class FriendController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function myFriends()
     {
 
@@ -46,7 +51,7 @@ class FriendController extends Controller
 
         Auth::user()->addFriend($user);
 
-        return redirect("profile/$user->id-$user->name-$user->surname");
+        return redirect()->route("profile",[$id,$name,$surname]);
     }
 
     public function getAcceptFriend($id,$name,$surname)
@@ -77,6 +82,6 @@ class FriendController extends Controller
             ->first();
 
         Auth::user()->unfriend($user);
-        return redirect("profile/$user->id-$user->name-$user->surname");
+        return redirect()->route("profile",[$id,$name,$surname]);
     }
 }

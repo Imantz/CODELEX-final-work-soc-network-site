@@ -19,18 +19,8 @@
         <br>
         @foreach($friends as $user)
             <div class="col-md-2">
-{{--                @if(Auth::user()->hasFriendRequestPending($user))--}}
-{{--                    <p>Waiting {{ $user->name }} to accept your request</p>--}}
-{{--                @elseif (Auth::user()->hasFriendRequestReceived($user))--}}
-{{--                    <a href="{{ route("friend.accept", ["name" => $user->name ]) }}">Accept</a>--}}
-{{--                @elseif(Auth::user()->isFriendsWith($user))--}}
-{{--                    <p>You and {{ $user->name }} are friends</p>--}}
-{{--                @elseif(Auth::user()->id !== $user->id)--}}
-{{--                    <a href="{{ route("friend.add", ["username"=>$user->name]) }}">Add as friend</a>--}}
-{{--                @endif--}}
 
-
-                <a href="profile/{{ $user->id . "-" . $user->name . "-" . $user->surname }}" class="btn">
+                <a href="{{ route("profile", [$user->id,$user->name,$user->surname]) }}" class="btn">
                     @if($user->img)
                         <img class="card-img-top" src="{{ asset("storage/" . $user->img) }}" alt="Card image cap">
                     @else

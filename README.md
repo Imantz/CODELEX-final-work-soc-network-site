@@ -1,11 +1,10 @@
 ### Social network
-###### february end..
+
+###### till: 28 feb
 
 ###### Tasks left TODO:
 Features list  
 - Password recovery (with email)
-- Posts wall
-- Followers
 - Pictures gallery
 - Like feature
 
@@ -34,8 +33,6 @@ Your post wall consists of your own posts & follower posts.
 
 ###### Friends
 
-Option to friend request someone.  
-When accepted you both become each other friends.  
 Friends should be displayed in each persons profile.    
 When you become friends you also become followers of each other.  
 You can follow/unfollow, friend/unfriend person based on your current status of him.  
@@ -44,7 +41,7 @@ When you unfriend person you also unfollow his content.
 ###### Followers  
 
 Followers can see your content (posts) in their feed.  
-You can follow someone without his permission.  
+ 
 
 ###### Picture gallery  
 
