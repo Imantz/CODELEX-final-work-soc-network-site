@@ -15,6 +15,9 @@
                 <a class="card-link" href="{{ route("friends") }}">Friends</a>
             </li>
             <li class="list-group-item text-center" style="border-bottom: none">
+                <a class="card-link" href="{{ route("gallery") }}">Gallery</a>
+            </li>
+            <li class="list-group-item text-center" style="border-bottom: none">
                 <a class="card-link" href="{{ route("following") }}">I'm following</a>
             </li>
             <li class="list-group-item text-center" style="border-bottom: none">
