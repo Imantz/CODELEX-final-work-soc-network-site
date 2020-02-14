@@ -27,8 +27,13 @@ Route::put('/my-profile', 'ProfileController@updateMyProfile')->name('my-profile
 Route::get('/following', 'FollowerController@followingTo')->name('following');
 Route::get('/followers', 'FollowerController@followers')->name('followers');
 Route::get('/friends' , 'FriendController@myFriends')->name("friends");
+
 Route::get('/gallery', 'GalleryController@index')->name("gallery");
-Route::post('/gallery', 'GalleryController@create')->name("gallery");
+Route::post('/gallery', 'GalleryController@create')->name("gallery.create");
+
+Route::get('/gallery/album/{gallery}', 'AlbumController@show')->name("album.show");
+Route::post('/gallery/album/{gallery}', 'AlbumController@create')->name("album.create");
+
 //TODO put/ delete / post
 Route::get('/{user}', 'ProfileController@profile')->name("profile");
 Route::get('/{user}/add' , 'FriendController@getAddFriend')->name("friend.add");

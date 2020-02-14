@@ -2,10 +2,9 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
 
-class CreateWallFeedsTable extends Migration
+class CreateAlbumsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,11 +13,10 @@ class CreateWallFeedsTable extends Migration
      */
     public function up()
     {
-        Schema::create('wall_feeds', function (Blueprint $table) {
+        Schema::create('albums', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('user_id');
-            $table->string('name');
-            $table->text('text');
+            $table->unsignedBigInteger("gallery_id");
+            $table->string("img");
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateWallFeedsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wall_feeds');
+        Schema::dropIfExists('albums');
     }
 }

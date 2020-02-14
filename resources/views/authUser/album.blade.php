@@ -2,6 +2,6 @@
 
 @section("wall")
 
-@include("layouts/gallery")
+@include("layouts/album")
 
 @endsection

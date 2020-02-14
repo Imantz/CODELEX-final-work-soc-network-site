@@ -13,17 +13,16 @@ class WallFeedsController extends Controller
         $this->middleware('auth');
     }
 
-    public function create(Request $request, WallFeed $wallFeed)
+    public function create(Request $request)
     {
         $validatedData = $request->validate([
             'text' => ['required'],
         ]);
 
-        $wallFeed = new WallFeed();
-        $wallFeed->name = Auth::user()->name;
-        $wallFeed->user_id = Auth::user()->id;
-        $wallFeed->text = $validatedData["text"];
-        $wallFeed->save();
+        Auth::user()->WallFeeds()->create([
+            "name" => Auth::user()->name,
+            "text" => $validatedData["text"]
+        ]);
 
         return redirect("/");
     }

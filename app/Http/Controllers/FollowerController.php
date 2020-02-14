@@ -17,8 +17,9 @@ class FollowerController extends Controller
 
     public function followingTo()
     {
-        $followers = DB::table('followers')
-            ->join('users', 'users.id', '=', 'followers.follower_id')
+
+        $followers = DB::table('follower_user')
+            ->join('users', 'users.id', '=', 'follower_user.follower_id')
             ->select('users.*')
             ->where("user_id", Auth::user()->id)
             ->get();
@@ -28,8 +29,9 @@ class FollowerController extends Controller
 
     public function followers()
     {
-        $followers = DB::table('followers')
-            ->join('users', 'users.id', '=', 'followers.user_id')
+
+        $followers = DB::table('follower_user')
+            ->join('users', 'users.id', '=', 'follower_user.user_id')
             ->select('users.*')
             ->where("follower_id", Auth::user()->id)
             ->get();
@@ -39,19 +41,15 @@ class FollowerController extends Controller
 
     public function follow(User $user)
     {
-        Follower::create([
-            "user_id"=>Auth::user()->id,
-            "follower_id" => $user->id
-        ]);
+        Auth::user()->followers()->attach($user->id);
 
         return redirect()->route("profile",$user);
     }
 
     public function unfollow(User $user)
     {
-        Follower::where("user_id",Auth::user()->id)
-            ->where("follower_id",$user->id)
-            ->delete();
+        Auth::user()->followers()->detach($user->id);
+
         return redirect()->route("profile",$user);
     }
 }

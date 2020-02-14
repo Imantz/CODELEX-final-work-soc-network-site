@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Follower;
 use App\User;
 
 use App\WallFeed;
@@ -30,7 +31,13 @@ class HomeController extends Controller
     {
         //TODO Querry! to get only Auth::user and Auth::user()->following persons wall feeds
 
-        $wallFeeds = WallFeed::where("user_id",Auth::user()->id)->get();
+         //Check for user name/surname updates and save for slug column.
+
+        Auth::user()->update([
+            "slug" => Auth::user()->id . "-" . Auth::user()->name . "-" . Auth::user()->surname,
+        ]);
+
+        $wallFeeds = Auth::user()->wallFeeds;
 
         return view('authUser/wall', compact("wallFeeds"));
     }

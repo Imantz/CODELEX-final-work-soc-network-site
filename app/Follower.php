@@ -9,4 +9,9 @@ class Follower extends Model
     protected $fillable = [
         "user_id","follower_id"
     ];
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class)->withTimestamps();
+    }
 }

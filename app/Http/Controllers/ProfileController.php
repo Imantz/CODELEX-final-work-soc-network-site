@@ -16,8 +16,7 @@ class ProfileController extends Controller
 
     public function profile(User $user)
     {
-            $wallFeeds = WallFeed::all()->where("user_id", $user->id);
-            return view("users/wall", compact("user","wallFeeds"));
+            return view("users/wall", compact("user"));
     }
 
     public function updateMyProfile()

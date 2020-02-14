@@ -1,7 +1,7 @@
 @extends("users")
 @section("wall")
 
-    @foreach($wallFeeds as $feed)
+    @foreach($user->wallFeeds as $feed)
 
         <div>
             <div class="card mt-2">

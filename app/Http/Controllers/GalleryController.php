@@ -2,42 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Album;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class GalleryController extends Controller
 {
     public function index()
     {
-        return view("authUser/gallery");
+        $gallery = Auth::user()->galleries;
+        return view("authUser/gallery", compact("gallery"));
     }
 
     public function create(Request $request)
     {
-
-     //       $user = Auth::user();
-    //        $user->update($this->validateRequest());
-    //        $this->storeImage($user);
-
-        dd($request);
-        return view("authUser/gallery");
-    }
-
-    private function storeImage(User $user)
-    {
-        if(request()->hasFile("img")){
-            $user->update([
-                "img" => request()->img->store("gallery","public"),
+        //TODO verificate this!
+            Auth::user()->galleries()->create([
+                "title"=> $request->title
             ]);
-        }
-    }
 
-    public function validateRequest()
-    {
-        if(request()->hasFile("img"))
-        {
-            return request()->validate([
-                "img"=>["file","image","max:5000"]
-            ]);
-        }
+        return redirect()->route("gallery");
     }
 }

@@ -2,14 +2,10 @@
 
 namespace App;
 
-use http\Env\Request;
-use Illuminate\Auth\Notifications\ResetPassword;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
@@ -21,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'surname' , 'email', 'password','img','phone','dob','city','state','zip','bio'
+        'name', 'surname' , 'email', 'password','img','phone','dob','city','state','zip','bio', 'slug'
     ];
 
     /**
@@ -42,11 +38,25 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function followers()
+    {
+        return $this->belongsToMany(Follower::class)->withTimestamps();
+    }
+
+    public function galleries()
+    {
+        return $this->hasMany(Gallery::class);
+    }
+
     public function getRouteKeyName()
     {
         return "slug";
     }
 
+    public function wallFeeds()
+    {
+        return $this->hasMany(WallFeed::class);
+    }
 
     public function friendsOfMine()
     {
@@ -115,8 +125,6 @@ class User extends Authenticatable
 
     public function isFollowing(User $user): bool
     {
-
-        return Follower::where("user_id",Auth::user()->id)
-                                ->where("follower_id",$user->id)->count();
+        return DB::table('follower_user')->where("user_id",Auth::user()->id)->where("follower_id",$user->id)->count();
     }
 }
