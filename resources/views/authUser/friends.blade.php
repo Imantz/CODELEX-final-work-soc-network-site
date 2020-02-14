@@ -9,8 +9,8 @@
         @foreach($requests as $request)
             <li class="row">
                 <p> friend request: {{ "$request->name $request->surname" }}
-                    <a class="btn btn-outline-success" href="{{ route("friend.accept", [$request->id,$request->name,$request->surname]) }}">Accept</a>
-                    <a class="btn btn-outline-danger" href="{{ route("friend.remove", [$request->id,$request->name,$request->surname]) }}">Decline</a>
+                    <a class="btn btn-outline-success" href="{{ route("friend.accept", $request) }}">Accept</a>
+                    <a class="btn btn-outline-danger" href="{{ route("friend.remove", $request) }}">Decline</a>
                 </p>
             </li>
         @endforeach
@@ -20,7 +20,7 @@
         @foreach($friends as $user)
             <div class="col-md-2">
 
-                <a href="{{ route("profile", [$user->id,$user->name,$user->surname]) }}" class="btn">
+                <a href="{{ route("profile", $user->slug) }}" class="btn">
                     @if($user->img)
                         <img class="card-img-top" src="{{ asset("storage/" . $user->img) }}" alt="Card image cap">
                     @else

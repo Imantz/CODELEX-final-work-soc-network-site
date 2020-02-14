@@ -14,25 +14,10 @@ class ProfileController extends Controller
         $this->middleware('auth');
     }
 
-    public function profile($id,$name,$surname)
+    public function profile(User $user)
     {
-        $user = User::where("id","=", $id )
-            ->where("name","=",$name)
-            ->where("surname","=",$surname)
-            ->first();
-
-        if($user){
-            $wallFeeds = $this->wall_feeds($user->id);
+            $wallFeeds = WallFeed::all()->where("user_id", $user->id);
             return view("users/wall", compact("user","wallFeeds"));
-        }else{
-            return redirect("/");
-        }
-    }
-
-    private function wall_feeds($id)
-    {
-        return WallFeed::all()->where("user_id", $id);
-
     }
 
     public function updateMyProfile()

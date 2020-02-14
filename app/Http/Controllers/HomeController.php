@@ -29,20 +29,8 @@ class HomeController extends Controller
     public function index()
     {
         //TODO Querry! to get only Auth::user and Auth::user()->following persons wall feeds
-        //FIXME !!
 
-
-        //where wall_feeds.user_id = ANY (select follower_id from followers
-        //                            where user_id = 5) or wall_feeds.user_id = 5;
-        $wallFeeds = DB::table('wall_feeds')
-            ->distinct("text")
-            ->select("wall_feeds.user_id","wall_feeds.text","wall_feeds.name","wall_feeds.created_at")
-            ->from("wall_feeds")
-            ->join("followers","wall_feeds.user_id","=","followers.user_id")
-            ->where("wall_feeds.user_id",Auth::user()->id)
-
-            ->orderBy('created_at', 'DESC')
-            ->get();
+        $wallFeeds = WallFeed::where("user_id",Auth::user()->id)->get();
 
         return view('authUser/wall', compact("wallFeeds"));
     }

@@ -5,7 +5,7 @@
     <div class="row">
         @foreach($users as $user)
         <div class="col-md-2">
-            <a href="{{ route("profile", [$user->id,$user->name,$user->surname]) }}" class="btn">
+            <a href="{{ route("profile", $user) }}" class="btn">
                 @if($user->img)
                 <img class="card-img-top" src="{{ asset("storage/$user->img") }}" alt="Card image cap">
                 @else

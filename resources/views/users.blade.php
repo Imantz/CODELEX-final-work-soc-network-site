@@ -24,23 +24,23 @@
                         @if(Auth::user()->hasFriendRequestPending($user))
                             <p>Waiting to accept your request</p>
                             <a href="">
-                                <a href="{{ route("friend.remove", [$user->id,$user->name,$user->surname]) }}">Cancel request</a>
+                                <a href="{{ route("friend.remove", $user) }}">Cancel request</a>
                             </a>
                         @elseif (Auth::user()->hasFriendRequestReceived($user))
 
-                            <a href="{{ route("friend.accept", [$user->id,$user->name,$user->surname]) }}">Accept</a>
+                            <a href="{{ route("friend.accept", $user) }}">Accept</a>
                             <a href="">Decline</a>
                         @elseif(Auth::user()->isFriendsWith($user))
-                            <a href="{{ route("friend.remove", [$user->id,$user->name,$user->surname]) }}">Remove friend</a>
+                            <a href="{{ route("friend.remove", $user) }}">Remove friend</a>
                         @elseif(Auth::user()->id !== $user->id)
-                            <a class="btn" href="{{ route("friend.add", [$user->id,$user->name,$user->surname]) }}">Send friend request</a>
+                            <a class="btn" href="{{ route("friend.add", $user) }}">Send friend request</a>
                         @endif
 
                     </li>
                 @if(Auth::user()->isFollowing($user))
 
                             <li class="list-group-item text-center" style="border-bottom: none">
-                                <form action="{{ route("unfollow", [$user->id,$user->name,$user->surname]) }}" method="POST">
+                                <form action="{{ route("unfollow", $user) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn" type="submit">Unfollow</button>
@@ -49,7 +49,7 @@
 
                 @else
                             <li class="list-group-item text-center" style="border-bottom: none">
-                                <form action="{{ route("follow", [$user->id,$user->name,$user->surname]) }}" method="POST">
+                                <form action="{{ route("follow", $user) }}" method="POST">
                                     @csrf
                                     <button class="btn" type="submit">Follow</button>
                                 </form>

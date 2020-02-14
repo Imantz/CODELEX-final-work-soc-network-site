@@ -11,6 +11,9 @@
 |
 */
 
+
+
+Auth::routes();
 Auth::routes(['verify' => true]);
 
 Route::get('/', 'HomeController@index')->name('authUser');
@@ -26,14 +29,14 @@ Route::get('/followers', 'FollowerController@followers')->name('followers');
 Route::get('/friends' , 'FriendController@myFriends')->name("friends");
 Route::get('/gallery', 'GalleryController@index')->name("gallery");
 Route::post('/gallery', 'GalleryController@create')->name("gallery");
+//TODO put/ delete / post
+Route::get('/{user}', 'ProfileController@profile')->name("profile");
+Route::get('/{user}/add' , 'FriendController@getAddFriend')->name("friend.add");
+Route::get('/{user}/remove' , 'FriendController@getUnfriend')->name("friend.remove");
+Route::get('/{user}/accept' , 'FriendController@getAcceptFriend')->name("friend.accept");
 
-Route::get('/{id}-{name}-{surname}', 'ProfileController@profile')->name("profile");
-Route::get('/{id}-{name}-{surname}/add' , 'FriendController@getAddFriend')->name("friend.add");
-Route::get('/{id}-{name}-{surname}/remove' , 'FriendController@getUnfriend')->name("friend.remove");
-Route::get('/{id}-{name}-{surname}/accept' , 'FriendController@getAcceptFriend')->name("friend.accept");
-
-Route::post('/{id}-{name}-{surname}/follow' , 'FollowerController@follow')->name("follow");
-Route::delete('/{id}-{name}-{surname}/unfollow' , 'FollowerController@unfollow')->name("unfollow");
+Route::post('/{user}/follow' , 'FollowerController@follow')->name("follow");
+Route::delete('/{user}/unfollow' , 'FollowerController@unfollow')->name("unfollow");
 
 
 

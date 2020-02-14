@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Follower;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -36,20 +37,21 @@ class FollowerController extends Controller
         return view("auth/followers", compact("followers"));
     }
 
-    public function follow($id,$name,$surname)
+    public function follow(User $user)
     {
-        $follower = new Follower();
-        $follower->user_id = Auth::user()->id;
-        $follower->follower_id = $id;
-        $follower->save();
-        return redirect()->route("profile",[$id,$name,$surname]);
+        Follower::create([
+            "user_id"=>Auth::user()->id,
+            "follower_id" => $user->id
+        ]);
+
+        return redirect()->route("profile",$user);
     }
 
-    public function unfollow($id,$name,$surname)
+    public function unfollow(User $user)
     {
         Follower::where("user_id",Auth::user()->id)
-            ->where("follower_id",$id)
+            ->where("follower_id",$user->id)
             ->delete();
-        return redirect()->route("profile",[$id,$name,$surname]);
+        return redirect()->route("profile",$user);
     }
 }
