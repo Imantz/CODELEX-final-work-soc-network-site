@@ -31,8 +31,10 @@ Route::get('/friends' , 'FriendController@myFriends')->name("friends");
 Route::get('/gallery', 'GalleryController@index')->name("gallery");
 Route::post('/gallery', 'GalleryController@create')->name("gallery.create");
 
-Route::get('/gallery/album/{gallery}', 'AlbumController@show')->name("album.show");
+Route::get('/gallery/album/{gallery}', 'AlbumController@index')->name("album.index");
 Route::post('/gallery/album/{gallery}', 'AlbumController@create')->name("album.create");
+Route::get('/gallery/album/photo/{album}', 'AlbumController@show')->name("album.show");
+
 
 //TODO put/ delete / post
 Route::get('/{user}', 'ProfileController@profile')->name("profile");
@@ -42,10 +44,6 @@ Route::get('/{user}/accept' , 'FriendController@getAcceptFriend')->name("friend.
 
 Route::post('/{user}/follow' , 'FollowerController@follow')->name("follow");
 Route::delete('/{user}/unfollow' , 'FollowerController@unfollow')->name("unfollow");
-
-
-
-
 
 
 

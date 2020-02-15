@@ -31,8 +31,7 @@ class HomeController extends Controller
     {
         //TODO Querry! to get only Auth::user and Auth::user()->following persons wall feeds
 
-         //Check for user name/surname updates and save for slug column.
-
+         //Check for user name/surname updates and save into user slug column 3-name-surname.
         Auth::user()->update([
             "slug" => Auth::user()->id . "-" . Auth::user()->name . "-" . Auth::user()->surname,
         ]);

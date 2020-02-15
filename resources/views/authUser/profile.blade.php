@@ -9,7 +9,6 @@
     {{-- TODO  Delete profile photo    --}}
     {{-- TODO Change phone number in user table to varchar or bigBIGBIIIGInt?. --}}
 
-
     <form class="ml-5" action="my-profile" method="POST" enctype="multipart/form-data">
         <h4>Edit your profile info</h4>
         @method('PUT')

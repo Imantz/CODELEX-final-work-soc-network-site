@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AlbumController extends Controller
 {
-    public function show(Gallery $gallery)
+    public function index(Gallery $gallery)
     {
         $albums = $gallery->albums;
         return view("authUser/album", compact("gallery","albums"));
@@ -25,6 +25,11 @@ class AlbumController extends Controller
         }
 
         return redirect()->back();
+    }
+
+    public function show(Album $album)
+    {
+        return view("authUser/photo", compact("album"));
     }
 
 }
