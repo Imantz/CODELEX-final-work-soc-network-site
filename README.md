@@ -13,10 +13,6 @@ Friends should be displayed in each persons profile.
 When you become friends you also become followers of each other.  
 When you unfriend person you also unfollow his content.  
 
-###### Followers  
-
-Followers can see your content (posts) in their feed.  
- 
 ###### Picture gallery  
  
 Everyone can see their pictures.  

@@ -36,7 +36,17 @@ class HomeController extends Controller
             "slug" => Auth::user()->id . "-" . Auth::user()->name . "-" . Auth::user()->surname,
         ]);
 
-        $wallFeeds = Auth::user()->wallFeeds;
+        $wallFeeds = DB::table("wall_feeds")
+            ->distinct()
+            ->crossJoin("follower_user","wall_feeds.user_id","=","follower_user.follower_id")
+            ->where("wall_feeds.user_id","=", Auth::user()->id)
+            ->orWhere(function($query){
+                return $query
+                    ->where("follower_user.user_id","=",Auth::user()->id);
+            })
+            ->select("text","name","wall_feeds.created_at")
+            ->orderBy("created_at","DESC")
+            ->get();
 
         return view('authUser/wall', compact("wallFeeds"));
     }

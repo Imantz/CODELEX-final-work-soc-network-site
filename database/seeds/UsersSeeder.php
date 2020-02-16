@@ -20,9 +20,9 @@ class UsersSeeder extends Seeder
             'slug'=>'1-Imants-Zuicans'
         ]);
 
-        $userCount = 3;
+        $userCount = 4;
 
-        for($i=2;$i<$userCount;$i++)
+        for($i=2;$i<=$userCount;$i++)
         {
              factory(App\User::class, 1)->create([
                 "slug"=> $i."-John-Bon",
