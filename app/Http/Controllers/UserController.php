@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use App\WallFeed;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
-class ProfileController extends Controller
+class UserController extends Controller
 {
     public function __construct()
     {
@@ -16,7 +15,7 @@ class ProfileController extends Controller
 
     public function profile(User $user)
     {
-            return view("users/wall", compact("user"));
+        return view("users/wall", compact("user"));
     }
 
     public function updateMyProfile()
