@@ -38,11 +38,11 @@ class HomeController extends Controller
 
         $wallFeeds = DB::table("wall_feeds")
             ->distinct()
-            ->crossJoin("follower_user","wall_feeds.user_id","=","follower_user.follower_id")
-            ->where("wall_feeds.user_id","=", Auth::user()->id)
-            ->orWhere(function($query){
+            ->leftJoin("follower_user","wall_feeds.user_id","=","follower_user.follower_id")
+            ->where(function($query){
                 return $query
-                    ->where("follower_user.user_id","=",Auth::user()->id);
+                    ->where("follower_user.user_id",Auth::user()->id)
+                    ->orWhere("wall_feeds.user_id",Auth::user()->id);
             })
             ->select("text","name","wall_feeds.created_at")
             ->orderBy("created_at","DESC")
