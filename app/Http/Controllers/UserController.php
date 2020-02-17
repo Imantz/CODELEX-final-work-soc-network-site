@@ -14,11 +14,6 @@ class UserController extends Controller
         $this->middleware('auth');
     }
 
-    public function profile(User $user)
-    {
-        return view("users/wall", compact("user"));
-    }
-
     public function show()
     {
         return view("authUser/profile");

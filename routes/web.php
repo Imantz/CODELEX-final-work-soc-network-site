@@ -38,9 +38,12 @@ Route::get('/gallery/album/{gallery}', 'AlbumController@index')->name("album.ind
 Route::post('/gallery/album/{gallery}', 'AlbumController@create')->name("album.create");
 Route::get('/gallery/album/photo/{album}', 'AlbumController@show')->name("album.show");
 
+Route::get('/{user}', 'OtherUserController@index')->name("profile");
+Route::get('/{user}/friends', 'OtherUserController@friends')->name("user.friends");
+Route::get('/{user}/gallery', 'OtherUserController@gallery')->name("user.gallery");
+Route::get('/{user}/{gallery}', 'OtherUserController@album')->name("user.album");
+Route::get('/{user}/photo/{album}', 'OtherUserController@photo')->name("user.photo");
 
-//TODO put/ delete / post
-Route::get('/{user}', 'UserController@profile')->name("profile");
 Route::post('/{user}' , 'FriendController@getAddFriend')->name("friend.add");
 Route::delete('/{user}' , 'FriendController@getUnfriend')->name("friend.remove");
 Route::put('/{user}' , 'FriendController@getAcceptFriend')->name("friend.accept");

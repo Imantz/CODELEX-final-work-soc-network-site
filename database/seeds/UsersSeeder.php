@@ -20,7 +20,7 @@ class UsersSeeder extends Seeder
             'slug'=>'1-Imants-Zuicans'
         ]);
 
-        $userCount = 4;
+        $userCount = 15;
 
         for($i=2;$i<=$userCount;$i++)
         {

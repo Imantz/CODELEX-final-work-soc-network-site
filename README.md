@@ -5,14 +5,9 @@
 ###### Post wall
 
 Post consists of adding the text, that can be formatted bold, italic, underline etc.  
- 
-###### Friends
-
-Friends should be displayed in each persons profile.    
 
 ###### Picture gallery  
- 
-Everyone can see their pictures.  
+
 You should be able to delete pictures in the gallery after a period of time.  
 
 ###### Likes

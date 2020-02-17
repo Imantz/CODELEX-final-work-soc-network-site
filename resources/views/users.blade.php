@@ -70,6 +70,12 @@
                             </form>
                         </li>
                     @endif
+                        <li class="list-group-item text-center" style="border-bottom: none">
+                            <a href="{{ route("user.friends", $user) }}">{{ __("Friends") }}</a>
+                        </li>
+                        <li class="list-group-item text-center" style="border-bottom: none">
+                            <a href="{{ route("user.gallery", $user) }}">{{ __("Gallery") }}</a>
+                        </li>
                 </ul>
             </div>
 
