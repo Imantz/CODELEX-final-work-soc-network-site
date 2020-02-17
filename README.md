@@ -5,13 +5,10 @@
 ###### Post wall
 
 Post consists of adding the text, that can be formatted bold, italic, underline etc.  
-Your post wall consists of your own posts & follower posts.  
-
+ 
 ###### Friends
 
 Friends should be displayed in each persons profile.    
-When you become friends you also become followers of each other.  
-When you unfriend person you also unfollow his content.  
 
 ###### Picture gallery  
  

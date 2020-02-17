@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreWallFeed;
 use App\WallFeed;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class WallFeedsController extends Controller
 {
@@ -13,16 +15,28 @@ class WallFeedsController extends Controller
         $this->middleware('auth');
     }
 
-    public function create(Request $request)
+    public function index()
     {
-        $validatedData = $request->validate([
-            'text' => ['required'],
-        ]);
 
-        Auth::user()->WallFeeds()->create([
-            "name" => Auth::user()->name,
-            "text" => $validatedData["text"]
-        ]);
+        $wallFeeds = DB::table("wall_feeds")
+            ->distinct()
+            ->leftJoin("follower_user","wall_feeds.user_id","=","follower_user.follower_id")
+            ->where(function($query){
+                return $query
+                    ->where("follower_user.user_id",Auth::user()->id)
+                    ->orWhere("wall_feeds.user_id",Auth::user()->id);
+            })
+            ->select("text","wall_feeds.user_id","wall_feeds.created_at")
+            ->orderBy("created_at","DESC")
+            ->get();
+
+        return view('authUser/wall', compact("wallFeeds"));
+    }
+
+    public function store(StoreWallFeed $request)
+    {
+
+        Auth::user()->WallFeeds()->create($request->validated());
 
         return redirect("/");
     }

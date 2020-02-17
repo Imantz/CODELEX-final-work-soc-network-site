@@ -18,4 +18,7 @@
     @csrf
     <input type="text" name="title">
     <button type="submit">Create gallery</button>
+    @error('title')
+    <small class="text-danger row ml-1">{{ $message }}</small>
+    @enderror
 </form>

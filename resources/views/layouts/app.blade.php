@@ -77,13 +77,13 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-                                    <a class="dropdown-item" href="{{ route('my-profile') }}"
+                                    <a class="dropdown-item" href="{{ route('profile.edit') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('edit-form').submit();">
                                         {{ __('Edit') }}
                                     </a>
 
-                                    <form id="edit-form" action="{{ route('my-profile') }}" method="get" style="display: none;">
+                                    <form id="edit-form" action="{{ route('profile.edit') }}" method="get" style="display: none;">
                                     </form>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"

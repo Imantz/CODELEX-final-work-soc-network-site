@@ -15,11 +15,8 @@ class WallFeedSeeder extends Seeder
     {
         for ($i = 1; $i <= 4; $i++) {
 
-            $name = ["","me","im following","im following", "im not Following"];
-
             factory(App\WallFeed::class, 1)->create(
                 [
-                    "name"=>  $name[$i],
                     "user_id" => $i
                 ]
             );

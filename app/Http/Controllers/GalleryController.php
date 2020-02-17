@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Album;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreGallery;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class GalleryController extends Controller
 {
@@ -15,12 +13,9 @@ class GalleryController extends Controller
         return view("authUser/gallery", compact("gallery"));
     }
 
-    public function create(Request $request)
+    public function store(StoreGallery $request)
     {
-        //TODO verificate this!
-            Auth::user()->galleries()->create([
-                "title"=> $request->title
-            ]);
+            Auth::user()->galleries()->create($request->validated());
 
         return redirect()->route("gallery");
     }

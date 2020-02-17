@@ -15,7 +15,6 @@ class FriendController extends Controller
 
     public function myFriends()
     {
-
         $friends = Auth::user()->friends();
         $requests = Auth::user()->friendRequests();
         return view("authUser/friends", compact(["friends","requests"]));
@@ -28,47 +27,47 @@ class FriendController extends Controller
         }
 
         if(Auth::user()->id === $user->id){
-            return redirect()->route("friends");
+            return redirect()->back();
         }
 
         if(Auth::user()->hasFriendRequestPending($user) || $user->hasFriendRequestPending(Auth::user()))
         {
-            return redirect()->route("friends", $user)
-                            ->with("info","friend request already pending");
+            return redirect()->back();
         }
 
         if(Auth::user()->isFriendsWith($user))
         {
-            return redirect()
-                ->route("friends",$user)
-                ->with("info","already friends");
+            return redirect()->back();
         }
 
         Auth::user()->addFriend($user);
+        Auth::user()->followers()->attach($user->id);
 
-        return redirect()->route("profile",$user);
+        return redirect()->back();
     }
 
     public function getAcceptFriend(User $user)
     {
 
         if(!$user){
-            return redirect()->route("friends")->with("info","User not found");
+            return redirect()->back();
         }
 
         if(!Auth::user()->hasFriendRequestReceived($user)){
-            return redirect()->route("friends");
+            return redirect()->back();
         }
 
         Auth::user()->acceptFriendRequest($user);
-        return redirect()
-            ->route("friends",$user)
-            ->with("info","friend request accepted");
+        Auth::user()->followers()->attach($user->id);
+        $user->followers()->attach(Auth::user()->id);
+        return redirect()->back();
+
     }
 
     public function getUnfriend(User $user)
     {
         Auth::user()->unfriend($user);
-        return redirect()->route("profile", $user);
+        Auth::user()->followers()->detach($user->id);
+        return redirect()->back();
     }
 }

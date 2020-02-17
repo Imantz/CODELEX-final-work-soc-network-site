@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateProfileRequest;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,13 +19,18 @@ class UserController extends Controller
         return view("users/wall", compact("user"));
     }
 
-    public function updateMyProfile()
+    public function show()
+    {
+        return view("authUser/profile");
+    }
+
+    public function update(UpdateProfileRequest $request)
     {
         $user = Auth::user();
-        $user->update($this->validateRequest());
+        $user->update($request->validated());
         $this->storeImage($user);
 
-        return redirect("/my-profile");
+        return redirect()->back();
     }
 
     public function allUsers()
@@ -40,27 +46,5 @@ class UserController extends Controller
                 "img" => request()->img->store("uploads","public"),
             ]);
         }
-    }
-
-    public function validateRequest()
-    {
-        return tap(
-            request()->validate([
-                'name' => ['required', 'max:10'],
-                'surname' => ['required'],
-                'phone' => ['nullable','numeric'],
-                'dob' => ['nullable'],
-                'city' => ['nullable'],
-                'state' => ['nullable'],
-                'zip' => ['nullable'],
-                'bio' => ['nullable'],
-            ]), function(){
-            if(request()->hasFile("img"))
-            {
-                request()->validate([
-                    "img"=>["file","image","max:5000"]
-                ]);
-            }
-        });
     }
 }

@@ -17,7 +17,6 @@ class CreateWallFeedsTable extends Migration
         Schema::create('wall_feeds', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedInteger('user_id');
-            $table->string('name');
             $table->text('text');
             $table->timestamps();
         });

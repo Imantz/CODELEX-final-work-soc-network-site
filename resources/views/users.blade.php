@@ -22,38 +22,53 @@
                     <li class="list-group-item text-center" style="border-bottom: none">
 
                         @if(Auth::user()->hasFriendRequestPending($user))
-                            <p>Waiting to accept your request</p>
-                            <a href="">
-                                <a href="{{ route("friend.remove", $user) }}">Cancel request</a>
-                            </a>
+                            <small>Waiting to accept your request</small>
+                            <form action="{{ route("friend.remove", $user) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn" type="submit">{{ __('Cancel request') }}</button>
+                            </form>
                         @elseif (Auth::user()->hasFriendRequestReceived($user))
 
-                            <a href="{{ route("friend.accept", $user) }}">Accept</a>
-                            <a href="">Decline</a>
+                            <form action="{{ route("friend.accept", $user) }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <button class="btn text-success" type="submit">{{ __('Accept') }}</button>
+                            </form>
+                            <form action="{{ route("friend.remove", $user) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn text-danger" type="submit">{{ __('Decline') }}</button>
+                            </form>
                         @elseif(Auth::user()->isFriendsWith($user))
-                            <a href="{{ route("friend.remove", $user) }}">Remove friend</a>
+                            <form action="{{ route("friend.remove", $user) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn" type="submit">{{ __('Remove friend') }}</button>
+                            </form>
                         @elseif(Auth::user()->id !== $user->id)
-                            <a class="btn" href="{{ route("friend.add", $user) }}">Send friend request</a>
+                            <form action="{{ route("friend.add", $user) }}" method="POST">
+                                @csrf
+                                <button class="btn">{{ __('Send friend request') }}</button>
+                            </form>
                         @endif
 
                     </li>
-                @if(Auth::user()->isFollowing($user))
-
-                            <li class="list-group-item text-center" style="border-bottom: none">
-                                <form action="{{ route("unfollow", $user) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn" type="submit">Unfollow</button>
-                                </form>
-                            </li>
-
-                @else
-                            <li class="list-group-item text-center" style="border-bottom: none">
-                                <form action="{{ route("follow", $user) }}" method="POST">
-                                    @csrf
-                                    <button class="btn" type="submit">Follow</button>
-                                </form>
-                            </li>
+                    @if(Auth::user()->isFollowing($user))
+                        <li class="list-group-item text-center" style="border-bottom: none">
+                            <form action="{{ route("unfollow", $user) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn" type="submit">Unfollow</button>
+                            </form>
+                        </li>
+                    @else
+                        <li class="list-group-item text-center" style="border-bottom: none">
+                            <form action="{{ route("follow", $user) }}" method="POST">
+                                @csrf
+                                <button class="btn" type="submit">Follow</button>
+                            </form>
+                        </li>
                     @endif
                 </ul>
             </div>
