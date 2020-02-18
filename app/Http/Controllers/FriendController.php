@@ -13,6 +13,12 @@ class FriendController extends Controller
         $this->middleware('auth');
     }
 
+    public function friends(User $user)
+    {
+        $friends = $user->friends()->except(Auth::user()->id);
+        return view("users/friends", compact(["friends","user"]));
+    }
+
     public function myFriends()
     {
         $friends = Auth::user()->friends();

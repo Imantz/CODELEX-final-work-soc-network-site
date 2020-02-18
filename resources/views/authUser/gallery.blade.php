@@ -13,6 +13,11 @@
                         <p class="card-text text-center"><small class="text-muted">{{ $album->title }}</small></p>
                     </div>
                 </a>
+                <form action="/gallery/{{ $album->id }}" method="POST">
+                    @csrf
+                    @method("DELETE")
+                    <button class="btn text-danger" type="submit">{{ __('Delete') }}</button>
+                </form>
             </div>
         @endforeach
     </div>

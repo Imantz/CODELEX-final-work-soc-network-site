@@ -19,6 +19,11 @@ class UserController extends Controller
         return view("authUser/profile");
     }
 
+    public function OtherUserProfileView(User $user)
+    {
+        return view("users/wall", compact("user"));
+    }
+
     public function update(UpdateProfileRequest $request)
     {
         $user = Auth::user();
