@@ -24,7 +24,10 @@ class WallFeed extends Model
 
     public function hasLiked():bool
     {
-        return (bool) Like::where("likeable_id", $this->id)->where("user_id", Auth::user()->id)->count();
+        return (bool) Like::where("likeable_id", $this->id)
+            ->where("user_id", Auth::user()->id)
+            ->where("likeable_type","App\WallFeed")
+            ->count();
     }
 
     public function likeCount(): int
