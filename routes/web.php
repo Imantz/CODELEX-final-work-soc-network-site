@@ -6,44 +6,37 @@
 
 
 Auth::routes(['verify' => true]);
-
 Route::get('/', 'HomeController@index')->name('home');
-
 Route::get('/', 'WallFeedsController@index');
 Route::post('/', 'WallFeedsController@store');
-Route::get('/friends' , 'FriendController@myFriends')->name("friends");
-Route::get('/check', 'UserController@userOnlineStatus');
+Route::delete('/{wallFeed}/delete', 'WallFeedsController@delete')->name("post.delete");
 Route::get('/all-users', 'UserController@allUsers')->name("all-users");
-Route::get('/my-profile', 'UserController@show')->name('profile.edit');
-Route::put('/my-profile', 'UserController@update')->name('profile.update');
-
+Route::get('/check', 'UserController@userOnlineStatus');
 Route::get('/following', 'FollowerController@followingTo')->name('following');
 Route::get('/followers', 'FollowerController@followers')->name('followers');
-
+Route::get('/friends' , 'FriendController@myFriends')->name("friends");
 Route::get('/gallery', 'GalleryController@index')->name("gallery");
 Route::post('/gallery', 'GalleryController@store')->name("gallery.create");
-Route::delete('/gallery/{id}', 'GalleryController@delete')->name("gallery.delete");
-
-Route::get('/gallery/album/{gallery}', 'AlbumController@index')->name("album.index");
-Route::post('/gallery/album/{gallery}', 'AlbumController@create')->name("album.create");
 Route::get('/gallery/album/photo/{album}', 'AlbumController@show')->name("album.show");
 Route::delete('/gallery/album/photo/{album}', 'AlbumController@delete')->name("album.delete");
-
-Route::get('/{user}/friends', 'FriendController@friends')->name("user.friends");
+Route::get('/gallery/album/{gallery}', 'AlbumController@index')->name("album.index");
+Route::post('/gallery/album/{gallery}', 'AlbumController@create')->name("album.create");
+Route::delete('/gallery/{id}', 'GalleryController@delete')->name("gallery.delete");
+Route::get('/my-profile', 'UserController@show')->name('profile.edit');
+Route::put('/my-profile', 'UserController@update')->name('profile.update');
 Route::post('/{user}' , 'FriendController@getAddFriend')->name("friend.add");
-Route::delete('/{user}' , 'FriendController@getUnfriend')->name("friend.remove");
 Route::put('/{user}' , 'FriendController@getAcceptFriend')->name("friend.accept");
-
-Route::get('/{user}/gallery', 'GalleryController@gallery')->name("user.gallery");
-
-Route::get('/{user}/photo/{album}', 'AlbumController@photo')->name("user.photo");
-Route::get('/{user}/{gallery}', 'AlbumController@album')->name("user.album");
-
+Route::delete('/{user}' , 'FriendController@getUnfriend')->name("friend.remove");
 Route::get('/{user}', 'UserController@OtherUserProfileView')->name("profile");
-
 Route::post('/{user}/follow' , 'FollowerController@follow')->name("follow");
+Route::get('/{user}/friends', 'FriendController@friends')->name("user.friends");
+Route::get('/{user}/gallery', 'GalleryController@gallery')->name("user.gallery");
+Route::get('/{user}/photo/{album}', 'AlbumController@photo')->name("user.photo");
 Route::delete('/{user}/unfollow' , 'FollowerController@unfollow')->name("unfollow");
+Route::get('/{user}/{gallery}', 'AlbumController@album')->name("user.album");
+Route::post('/{user}/{wallFeed}', 'WallFeedsController@getLike')->name("like.post");
 
+Route::delete('/{user}/{wallFeed}', 'WallFeedsController@unlike')->name("unlike.post");
 
 
 

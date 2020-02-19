@@ -74,6 +74,6 @@ class FriendController extends Controller
     {
         Auth::user()->unfriend($user);
         Auth::user()->followers()->detach($user->id);
-        return redirect()->back();
+        return redirect()->route("profile",$user);
     }
 }

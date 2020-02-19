@@ -41,6 +41,7 @@ class FollowerController extends Controller
 
     public function follow(User $user)
     {
+
         Auth::user()->followers()->attach($user->id);
 
         return redirect()->route("profile",$user);

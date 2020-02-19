@@ -16,17 +16,32 @@
             </div>
         </form>
 
-        @foreach($wallFeeds as $feed)
+        @foreach($wallFeeds as $wallFeedId)
 
             <div>
                 <div class="card mt-2">
 
                     <div class="p-2">
-                        <p>there must be post author name/link to profile</p>
+                        @if($wallFeedId->user_id !== Auth::user()->id)
 
-                        <p class="p-1">{{ $feed->text }}</p>
+                            <a href="
+               {{ route("profile", $users->where("id",$wallFeedId->user_id)->first())        }}">
+                                {{ $users->where("id",$wallFeedId->user_id)->first()->name  }}
+                                {{ $users->where("id",$wallFeedId->user_id)->first()->surname }}
+                            </a>
+                        @endif
+                        <p class="p-1">{{ $wallFeedId->text }}</p>
                     </div>
-                    <button style="width: 30px;" class="btn btn-outline-danger mb-2 ml-auto mr-2 p-1 rounded-circle" type="submit" name="">X</button>
+
+                    @if($wallFeedId->user_id === Auth::user()->id)
+
+                        <form class="ml-auto" action="{{ route("post.delete", $wallFeedId->id) }}" method="POST">
+                            @csrf
+                            @method("DELETE")
+                            <button style="width: 30px;" class="btn btn-outline-danger mb-2 mr-2 p-1 rounded-circle" type="submit" name="">X</button>
+                        </form>
+
+                    @endif
                 </div>
             </div>
 

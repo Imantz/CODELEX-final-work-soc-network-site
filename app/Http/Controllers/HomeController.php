@@ -13,9 +13,5 @@ class HomeController extends Controller
 
     public function index()
     {
-        //create slug and update every time when changes name/surname
-        Auth::user()->update([
-            "slug" => Auth::user()->id . "-" . Auth::user()->name . "-" . Auth::user()->surname,
-        ]);
     }
 }

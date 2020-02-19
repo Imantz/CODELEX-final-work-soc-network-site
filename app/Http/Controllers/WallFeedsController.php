@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreWallFeed;
+use App\Like;
+use App\User;
 use App\WallFeed;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,6 +19,10 @@ class WallFeedsController extends Controller
 
     public function index()
     {
+        //TODO resolve this.
+        Auth::user()->update([
+            "slug" => Auth::user()->id . "-" . Auth::user()->name . "-" . Auth::user()->surname,
+        ]);
 
         $wallFeeds = DB::table("wall_feeds")
             ->distinct()
@@ -26,11 +32,13 @@ class WallFeedsController extends Controller
                     ->where("follower_user.user_id",Auth::user()->id)
                     ->orWhere("wall_feeds.user_id",Auth::user()->id);
             })
-            ->select("text","wall_feeds.user_id","wall_feeds.created_at")
+            ->select("text","wall_feeds.user_id","wall_feeds.id","wall_feeds.created_at")
             ->orderBy("created_at","DESC")
             ->get();
+            $users = User::all();
+            $posts = WallFeed::all();
 
-        return view('authUser/wall', compact("wallFeeds"));
+        return view('authUser/wall', compact("wallFeeds", "users", "posts"));
     }
 
     public function store(StoreWallFeed $request)
@@ -38,6 +46,24 @@ class WallFeedsController extends Controller
 
         Auth::user()->WallFeeds()->create($request->validated());
 
+        return redirect("/");
+    }
+
+    public function getLike(User $user , WallFeed $wallFeed)
+    {
+        $wallFeed->likes()->updateOrCreate(["user_id"=>Auth::user()->id]);
+        return redirect()->back();
+    }
+
+    public function unlike(User $user , WallFeed $wallFeed)
+    {
+        $wallFeed->likes()->where("user_id",Auth::user()->id)->delete();
+        return redirect()->back();
+    }
+
+    public function delete(WallFeed $wallFeed)
+    {
+        $wallFeed->delete();
         return redirect("/");
     }
 }
