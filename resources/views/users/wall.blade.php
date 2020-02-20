@@ -10,13 +10,13 @@
 
                     <p class="p-1">{{ $wallFeed->text }}</p>
                     @if( ! $wallFeed->hasLiked())
-                        <form action="{{ route("like.post", [$user,$wallFeed]) }}" method="POST">
+                        <form action="{{ route("like.post", $wallFeed) }}" method="POST">
                             @csrf
                             <button class="btn text-info" type="submit">{{ __("Like") }}</button>
                             <small class="p-1 ml-3">{{  $wallFeed->likeCount() }} {{ __("liked") }}</small>
                         </form>
                         @else
-                        <form action="{{ route("unlike.post", [$user,$wallFeed]) }}" method="POST">
+                        <form action="{{ route("unlike.post", $wallFeed) }}" method="POST">
                             @csrf
                             @method("DELETE")
                             <button class="btn text-info" type="submit">{{ __("Unlike") }}</button>

@@ -43,6 +43,11 @@ class User extends Authenticatable
         return $this->belongsToMany(Follower::class)->withTimestamps();
     }
 
+    public function followingTo()
+    {
+        return $this->hasMany(Follower::class, "user_id");
+    }
+
     public function galleries()
     {
         return $this->hasMany(Gallery::class);
@@ -56,6 +61,11 @@ class User extends Authenticatable
     public function wallFeeds()
     {
         return $this->hasMany(WallFeed::class);
+    }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
     }
 
     public function friendsOfMine()

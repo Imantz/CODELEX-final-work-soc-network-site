@@ -1,13 +1,8 @@
 <?php
 
 
-
-
-
-
 Auth::routes(['verify' => true]);
-Route::get('/', 'HomeController@index')->name('home');
-Route::get('/', 'WallFeedsController@index');
+Route::get('/', 'WallFeedsController@index')->name("home");
 Route::post('/', 'WallFeedsController@store');
 Route::delete('/{wallFeed}/delete', 'WallFeedsController@delete')->name("post.delete");
 Route::get('/all-users', 'UserController@allUsers')->name("all-users");
@@ -34,9 +29,11 @@ Route::get('/{user}/gallery', 'GalleryController@gallery')->name("user.gallery")
 Route::get('/{user}/photo/{album}', 'AlbumController@photo')->name("user.photo");
 Route::delete('/{user}/unfollow' , 'FollowerController@unfollow')->name("unfollow");
 Route::get('/{user}/{gallery}', 'AlbumController@album')->name("user.album");
-Route::post('/{user}/{wallFeed}', 'WallFeedsController@getLike')->name("like.post");
 
-Route::delete('/{user}/{wallFeed}', 'WallFeedsController@unlike')->name("unlike.post");
+Route::post('/post/{wallFeed}', 'LikeController@likePost')->name("like.post");
+Route::delete('/post/{wallFeed}', 'LikeController@unlikePost')->name("unlike.post");
+
+
 
 
 

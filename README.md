@@ -1,22 +1,32 @@
-public function Šeit_top_CODELEX_programmēšanas_kursu_noslēguma_darbs()
+###### public function Šeit_top_CODELEX_programmēšanas_kursu_noslēguma_darbs():string
 
 { 
 
-        Dotajā momentā vien tīrs Laravel PHP un bez testiem
-        VueJS vien standarta reģistrācijas formai.
-        Boostraps lai nedaudz pievilcīgāk izskatītos.
+        return
+        
+        "Dotajā momentā tīrs Laravel PHP un bez testiem
+         VueJS standarta reģistrācijas formai.
+         Boostraps lai nedaudz pievilcīgāk izskatītos.";
+ 
       
 }
 
-public function links_uz_riga_roding_school_noslēguma_darbu()
+
+###### public function links_uz_riga_roding_school_noslēguma_darbu():void
 
 {
 ###### //TODO Links dots lai varētu salīdzināt ko iemāca CODELEX un citi programmēšanas, kursi. 
 
         https://github.com/Imantz/rcs
+        
+         (Uz linka nenospiedisi un tādēļ izmanto Copy+paste maģiju)
 }
 
-public function L_T_P_C()
+
+
+
+
+###### public function L_T_P_C():void
 
 {
 
@@ -31,6 +41,9 @@ public function L_T_P_C()
     kā Jūs rīkotos ja nedēļas laikā iemācītos vairāk nekā citur pus gada laikā?
 
 }
+
+
+
 
 ###### Tasks left TODO:
 

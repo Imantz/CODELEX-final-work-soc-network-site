@@ -6,12 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Follower extends Model
 {
-    protected $fillable = [
-        "user_id","follower_id"
-    ];
+    protected $table = "follower_user";
 
-    public function users()
-    {
-        return $this->belongsToMany(User::class)->withTimestamps();
-    }
 }
