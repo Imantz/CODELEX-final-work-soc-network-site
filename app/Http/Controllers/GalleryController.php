@@ -32,6 +32,7 @@ class GalleryController extends Controller
 
     public function delete($id)
     {
+
         Album::where("gallery_id",$id)->delete();
         Gallery::where("id", $id)->delete();
         return redirect()->route("gallery");

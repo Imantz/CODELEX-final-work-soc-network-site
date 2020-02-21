@@ -29,9 +29,10 @@ Route::get('/{user}/gallery', 'GalleryController@gallery')->name("user.gallery")
 Route::get('/{user}/photo/{album}', 'AlbumController@photo')->name("user.photo");
 Route::delete('/{user}/unfollow' , 'FollowerController@unfollow')->name("unfollow");
 Route::get('/{user}/{gallery}', 'AlbumController@album')->name("user.album");
-
 Route::post('/post/{wallFeed}', 'LikeController@likePost')->name("like.post");
 Route::delete('/post/{wallFeed}', 'LikeController@unlikePost')->name("unlike.post");
+Route::post('/photo/{album}', 'LikeController@likePhoto')->name("like.photo");
+Route::delete('/photo/{album}', 'LikeController@unlikePhoto')->name("unlike.photo");
 
 
 
