@@ -45,10 +45,6 @@
 
 
 
-###### Tasks left TODO:
-
-- reset passwords in profile edit page*
-
 ###### Post wall
 
 Post consists of adding the text, that can be formatted bold, italic, underline etc.  

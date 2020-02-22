@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateProfileRequest;
 use App\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -26,8 +26,17 @@ class UserController extends Controller
 
     public function update(UpdateProfileRequest $request)
     {
+
         $user = Auth::user();
         $user->update($request->validated());
+
+        if($request->password)
+        {
+            $user->update([
+                'password' => Hash::make($request->password),
+            ]);
+        }
+
         $this->storeImage($user);
 
         return redirect()->back();

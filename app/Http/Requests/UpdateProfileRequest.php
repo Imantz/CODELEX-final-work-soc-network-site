@@ -27,7 +27,9 @@ class UpdateProfileRequest extends FormRequest
         ], function(){
             if(request()->password)
             {
-                dd(request()->password);
+                request()->validate([
+                    'password' => ['required', 'string', 'min:8', 'confirmed'],
+                ]);
             }
             if(request()->hasFile("img"))
             {
