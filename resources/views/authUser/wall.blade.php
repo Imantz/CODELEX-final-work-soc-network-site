@@ -1,6 +1,7 @@
 @extends("auth-user")
 @section("wall")
     <div>
+
         <form action="/" method="POST">
             @csrf
             <div class="card">

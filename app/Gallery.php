@@ -21,4 +21,14 @@ class Gallery extends Model
     {
         return $this->hasMany(Album::class);
     }
+
+    public function isEmpty():bool
+    {
+        return ! $this->albums->count();
+    }
+
+    public function getIcon():string
+    {
+        return $this->albums()->inRandomOrder()->first()->img;
+    }
 }
