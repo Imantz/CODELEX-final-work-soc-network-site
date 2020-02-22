@@ -17,6 +17,12 @@
                             <small class="p-1">{{  $album->likeCount() }} {{ __("liked") }}</small>
                         </form>
                     @endif
+
+                        <form class="flex" action="{{ route("album.delete", [$album]) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn text-danger" type="submit">{{ __("Delete") }}</button>
+                        </form>
                 </div>
         </div>
 </div>

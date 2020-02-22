@@ -7,7 +7,7 @@
                 <div class="card-header">Izveidot ierakstu</div>
 
                 <div class="form-group">
-                    <textarea style="border: none; resize: none;" class="form-control" id="exampleFormControlTextarea1" name="text" placeholder="Any text there.." rows="3"></textarea>
+                    <textarea style="border: none; resize: none;" class="form-control"  name="text" placeholder="Any text there.." rows="3"></textarea>
                 </div>
                 @error('text')
                 <small class="text-danger ml-3">{{ $message }}</small>

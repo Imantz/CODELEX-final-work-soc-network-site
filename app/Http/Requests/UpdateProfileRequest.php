@@ -18,12 +18,17 @@ class UpdateProfileRequest extends FormRequest
             'name' => ['required', 'max:10'],
             'surname' => ['required'],
             'phone' => ['nullable','numeric'],
+            'email' => ['nullable'],
             'dob' => ['nullable'],
             'city' => ['nullable'],
             'state' => ['nullable'],
             'zip' => ['nullable'],
             'bio' => ['nullable'],
         ], function(){
+            if(request()->password)
+            {
+                dd(request()->password);
+            }
             if(request()->hasFile("img"))
             {
                 request()->validate([

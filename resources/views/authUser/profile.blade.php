@@ -2,12 +2,6 @@
 
 @section('wall')
 
-    {{-- TODO  ErrorHandling for passwords.--}}
-    {{-- TODO  Name, surname required . again errorHandling--}}
-    {{-- TODO  Controller* change passwords--}}
-    {{-- TODO  DB insert mobile & email    --}}
-    {{-- TODO  Delete profile photo    --}}
-    {{-- TODO Change phone number in user table to varchar or bigBIGBIIIGInt?. --}}
 
     <form class="ml-5" action="{{ route("profile.update") }}" method="POST" enctype="multipart/form-data">
         <h4>Edit your profile info</h4>
@@ -17,11 +11,13 @@
         <div class="form-row">
             <div class="col-md-4 mb-3">
                 <label for="name">First name</label>
-                <input type="text" class="form-control" id="name" value="{{ ucfirst(Auth::user()->name) }}" name="name">
+                <input type="text" class="form-control @error('name') is-invalid @enderror"
+                       id="name" value="{{ ucfirst(Auth::user()->name) }}" name="name">
             </div>
             <div class="col-md-4 mb-3">
                 <label for="surname">Last name</label>
-                <input type="text" class="form-control" id="surname" value="{{ ucfirst(Auth::user()->surname) }}" name="surname">
+                <input type="text" class="form-control @error('surname') is-invalid @enderror"
+                       id="surname" value="{{ ucfirst(Auth::user()->surname) }}" name="surname">
             </div>
         </div>
             {{--   Email & Mobile    --}}
@@ -36,16 +32,29 @@
             </div>
         </div>
             {{--   Password & Password_confirmation    --}}
-        <div class="form-row">
-            <div class="col-md-4 mb-3">
-                <label for="password">password</label>
-                <input id="password" type="password" class="form-control" name="password">
-            </div>
-            <div class="col-md-4 mb-3">
-                <label for="password-confirm">Confirm password</label>
-                <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
-            </div>
-        </div>
+
+
+{{--        <div class="form-group row">--}}
+{{--            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>--}}
+
+{{--            <div class="col-md-4">--}}
+{{--                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">--}}
+
+{{--                @error('password')--}}
+{{--                <span class="invalid-feedback" role="alert">--}}
+{{--                                        <strong>{{ $message }}</strong>--}}
+{{--                                    </span>--}}
+{{--                @enderror--}}
+{{--            </div>--}}
+{{--        </div>--}}
+
+{{--        <div class="form-group row">--}}
+{{--            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>--}}
+
+{{--            <div class="col-md-4">--}}
+{{--                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">--}}
+{{--            </div>--}}
+{{--        </div>--}}
             {{--   Img & Phone    --}}
         <div class="form-row">
             <div class="col-md-4 mb-3">
