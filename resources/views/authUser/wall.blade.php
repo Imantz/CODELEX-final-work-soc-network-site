@@ -4,16 +4,18 @@
 
         <form action="/" method="POST">
             @csrf
-            <div class="card">
+            <div class="card" style="margin-bottom: 5px" >
                 <div class="card-header">Izveidot ierakstu</div>
 
-                <div class="form-group">
-                    <textarea style="border: none; resize: none;" class="form-control"  name="text" placeholder="Any text there.." rows="3"></textarea>
-                </div>
+
+                    <textarea id="editor" style="border: none; resize: none;" class="form-control"  name="text" placeholder="Any text there.." rows="3"></textarea>
+
                 @error('text')
                 <small class="text-danger ml-3">{{ $message }}</small>
                 @enderror
-                <button style="width: 80px;" class="btn btn-outline-success mb-2 ml-auto mr-2" type="submit" name="">Add</button>
+            </div>
+            <div class="row">
+                <button style="width: 80px; margin-right: 25px;" class=" btn btn-outline-success ml-auto" type="submit" name="">Add</button>
             </div>
         </form>
 
@@ -31,7 +33,7 @@
                                 {{ $users->where("id",$wallFeed->user_id)->first()->surname }}
                             </a>
                         @endif
-                        <p class="p-1">{{ $wallFeed->text }}</p>
+                        <p class="p-1">{!! html_entity_decode($wallFeed->text) !!}</p>
 
                             @if( ! $wallFeed->hasLiked())
                                 <form action="{{ route("like.post", $wallFeed) }}" method="POST">
@@ -63,6 +65,25 @@
             @endforeach
 
     </div>
-@endsection
+
+
+
+
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'),{
+                removePlugins: [ 'Heading', 'Link' ],
+                toolbar: [ 'bold', 'italic', ]
+            });
+        config.fillEmptyBlocks = false;
+        config.fillEmptyBlocks = function (element) {
+            if (element.attributes['class'].indexOf('clear-both') !== -1)
+                return false;
+        }
+    </script>
+
+
+    @endsection
+
 
 
