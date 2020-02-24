@@ -63,27 +63,16 @@
             </div>
 
             @endforeach
-
     </div>
-
-
-
-
     <script>
         ClassicEditor
             .create(document.querySelector('#editor'),{
                 removePlugins: [ 'Heading', 'Link' ],
                 toolbar: [ 'bold', 'italic', ]
             });
-        config.fillEmptyBlocks = false;
-        config.fillEmptyBlocks = function (element) {
-            if (element.attributes['class'].indexOf('clear-both') !== -1)
-                return false;
-        }
     </script>
-
-
     @endsection
+
 
 
 
