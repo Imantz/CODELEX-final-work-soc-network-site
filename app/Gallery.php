@@ -24,7 +24,7 @@ class Gallery extends Model
 
     public function isEmpty():bool
     {
-        return ! $this->albums->count();
+        return ! $this->albums()->count() > 0;
     }
 
     public function getIcon():string

@@ -69,7 +69,6 @@ class WallFeedsController extends Controller
     public function delete(WallFeed $wallFeed):string
     {
         //Delete post
-
         $wallFeed->delete();
 
         return redirect("/");
