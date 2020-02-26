@@ -8,7 +8,8 @@
                 <div class="card-header">Izveidot ierakstu</div>
 
 
-                    <textarea id="editor" style="border: none; resize: none;" class="form-control"  name="text" placeholder="Any text there.." rows="3"></textarea>
+{{--                    <textarea id="editor" style="border: none; resize: none;" class="form-control"  name="text" placeholder="Any text there.." rows="3"></textarea>--}}
+                    <textarea style="border: none; resize: none;" class="form-control"  name="text" placeholder="Any text there.." rows="3"></textarea>
 
                 @error('text')
                 <small class="text-danger ml-3">{{ $message }}</small>
@@ -64,13 +65,13 @@
 
             @endforeach
     </div>
-    <script>
-        ClassicEditor
-            .create(document.querySelector('#editor'),{
-                removePlugins: [ 'Heading', 'Link' ],
-                toolbar: [ 'bold', 'italic', ]
-            });
-    </script>
+{{--    <script>--}}
+{{--        ClassicEditor--}}
+{{--            .create(document.querySelector('#editor'),{--}}
+{{--                removePlugins: [ 'Heading', 'Link' ],--}}
+{{--                toolbar: [ 'bold', 'italic', ]--}}
+{{--            });--}}
+{{--    </script>--}}
     @endsection
 
 

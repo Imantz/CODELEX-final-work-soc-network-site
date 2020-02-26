@@ -41,10 +41,3 @@
     kā Jūs rīkotos ja nedēļas laikā iemācītos vairāk nekā citur pus gada laikā?
 
 }
-
-
-
-
-###### Post wall
-
-Post consists of adding the text, that can be formatted bold, italic, underline etc.  
