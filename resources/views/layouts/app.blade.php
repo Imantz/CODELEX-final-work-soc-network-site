@@ -23,7 +23,7 @@
     <link href="{{ asset('css/someStyle.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
+    <div>
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -50,8 +50,20 @@
                         @else
                             {{--  Friend notification icon  --}}
                         <li class="position-relative">
-                            <friend-request-count></friend-request-count>
+                            <a href="{{ route("friends") }}">
+                                @if(Auth::user()->friendRequestCount() !== 0)
+                                    <img class="friend-notification-has-friend-img" src="{{ asset("notificationIcons/friend_request.svg") }}"
+                                         alt="notification icon" height="40" width="40">
+                                    <span class="danger friend-notification-has-friend-number">
+                                    {{ Auth::user()->friendRequestCount() }}
+                                </span>
+                                @else
 
+                                    <img class="friend-notification-empty-img" src="{{ asset("notificationIcons/friend_request.svg") }}" alt="" height="40" width="40">
+                                    <span class="danger friend-notification-empty-number">{{ Auth::user()->friendRequestCount() }}</span>
+
+                                @endif
+                            </a>
                         </li>
 
                         <li class="nav-item">

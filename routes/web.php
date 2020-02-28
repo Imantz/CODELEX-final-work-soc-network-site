@@ -17,6 +17,11 @@ Route::delete('/gallery/album/photo/{album}', 'AlbumController@delete')->name("a
 Route::get('/gallery/album/{gallery}', 'AlbumController@index')->name("album.index");
 Route::post('/gallery/album/{gallery}', 'AlbumController@create')->name("album.create");
 Route::delete('/gallery/{id}', 'GalleryController@delete')->name("gallery.delete");
+
+Route::get("/messages", "Messages\MessagesController")->name("messages");
+Route::post("/message/{id}", "Messages\MessageSendController")->name("message.send");
+
+
 Route::get('/my-profile', 'UserController@show')->name('profile.edit');
 Route::put('/my-profile', 'UserController@update')->name('profile.update');
 Route::post('/{user}' , 'FriendController@getAddFriend')->name("friend.add");
@@ -33,6 +38,7 @@ Route::post('/post/{wallFeed}', 'LikeController@likePost')->name("like.post");
 Route::delete('/post/{wallFeed}', 'LikeController@unlikePost')->name("unlike.post");
 Route::post('/photo/{album}', 'LikeController@likePhoto')->name("like.photo");
 Route::delete('/photo/{album}', 'LikeController@unlikePhoto')->name("unlike.photo");
+
 
 
 
