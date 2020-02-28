@@ -20,7 +20,7 @@ Route::delete('/gallery/{id}', 'GalleryController@delete')->name("gallery.delete
 
 Route::get("/messages", "Messages\MessagesController")->name("messages");
 Route::post("/message/{id}", "Messages\MessageSendController")->name("message.send");
-
+Route::post("/new/message/{id}", "Messages\SendNewMessageController")->name("message.new");
 
 Route::get('/my-profile', 'UserController@show')->name('profile.edit');
 Route::put('/my-profile', 'UserController@update')->name('profile.update');

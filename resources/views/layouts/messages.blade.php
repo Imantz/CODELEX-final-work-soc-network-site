@@ -6,6 +6,8 @@
                 {{ session('msg_flash') }}
             </div>
         @endif
+        @if(count($user->messagesReceived))
+
         @foreach($user->messagesReceived as $msg)
             <div class="card mb-2">
                 <div class="card-body" id="message_to_answer_{{ $msg->id }}">
@@ -18,6 +20,7 @@
 
             </div>
             @endforeach
+
             <script>
                 let message_open = [];
 
@@ -44,5 +47,8 @@
 
 
             </script>
+            @else
+                <h1>Mail is empty</h1>
+            @endif
     </div>
     @endsection
