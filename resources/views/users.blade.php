@@ -2,7 +2,9 @@
 @section("content")
 
 
+
     <div class="container">
+
         <div class="row">
 
             <div class="card" style="width: 18rem;">
@@ -18,7 +20,7 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item text-center position-relative" id="message_parent_node" style="border-bottom: none">
                         <button type="button" onclick="show_message_card()" class="btn text-danger">Send Message</button>
-                    </li>
+
                     @if(Route::currentRouteName() !== "profile")
                         <li class="list-group-item text-center" style="border-bottom: none">
                             <a href="{{ route("profile", $user) }}">Posts</a>
@@ -139,7 +141,6 @@
             }
 
         </script>
-
 
     </div>
 
